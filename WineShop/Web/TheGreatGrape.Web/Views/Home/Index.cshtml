@@ -1,0 +1,23 @@
+﻿@using TheGreatGrape.Common
+@model TheGreatGrape.Web.ViewModels.Home.IndexViewModel
+@{
+    this.ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
+    <p>
+        <style>
+            ul#menu li {
+                display: inline
+            }
+        </style>
+        <ul id="menu">
+            @foreach (var item in Model.Categories)
+            {
+                <li>@item.Name</li>
+            }
+        </ul>
+    </p>
+</div>

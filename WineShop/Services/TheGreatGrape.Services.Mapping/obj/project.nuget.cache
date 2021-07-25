@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "xFfU95ebzNUtvVOnxwavyasbMQKi7M+JNNZo/Ykje9fT7OKGUafUM+kqkiWw3ybOcKi8Ba6QoYicy5F/Bz9OXQ==",
+  "success": true,
+  "projectFilePath": "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services.Mapping\\TheGreatGrape.Services.Mapping.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Gamer\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Gamer\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Gamer\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
+    "C:\\Users\\Gamer\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512",
+    "C:\\Users\\Gamer\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
