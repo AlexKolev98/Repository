@@ -16,3 +16,12 @@ D:\LocalRepository\WineShop\Data\TheGreatGrape.Data.Common\obj\Debug\netstandard
 D:\LocalRepository\WineShop\Data\TheGreatGrape.Data.Common\obj\Debug\netstandard2.1\TheGreatGrape.Data.Common.csproj.CoreCompileInputs.cache
 D:\LocalRepository\WineShop\Data\TheGreatGrape.Data.Common\obj\Debug\netstandard2.1\TheGreatGrape.Data.Common.dll
 D:\LocalRepository\WineShop\Data\TheGreatGrape.Data.Common\obj\Debug\netstandard2.1\TheGreatGrape.Data.Common.pdb
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Common\bin\Debug\netstandard2.1\TheGreatGrape.Data.Common.deps.json
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Common\bin\Debug\netstandard2.1\TheGreatGrape.Data.Common.dll
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Common\bin\Debug\netstandard2.1\TheGreatGrape.Data.Common.pdb
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Common\obj\Debug\netstandard2.1\TheGreatGrape.Data.Common.csproj.AssemblyReference.cache
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Common\obj\Debug\netstandard2.1\TheGreatGrape.Data.Common.AssemblyInfoInputs.cache
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Common\obj\Debug\netstandard2.1\TheGreatGrape.Data.Common.AssemblyInfo.cs
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Common\obj\Debug\netstandard2.1\TheGreatGrape.Data.Common.csproj.CoreCompileInputs.cache
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Common\obj\Debug\netstandard2.1\TheGreatGrape.Data.Common.dll
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Common\obj\Debug\netstandard2.1\TheGreatGrape.Data.Common.pdb

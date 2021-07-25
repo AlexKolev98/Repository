@@ -16,3 +16,12 @@ D:\LocalRepository\WineShop\Services\TheGreatGrape.Services.Messaging\obj\Debug\
 D:\LocalRepository\WineShop\Services\TheGreatGrape.Services.Messaging\obj\Debug\netstandard2.1\TheGreatGrape.Services.Messaging.csproj.CoreCompileInputs.cache
 D:\LocalRepository\WineShop\Services\TheGreatGrape.Services.Messaging\obj\Debug\netstandard2.1\TheGreatGrape.Services.Messaging.dll
 D:\LocalRepository\WineShop\Services\TheGreatGrape.Services.Messaging\obj\Debug\netstandard2.1\TheGreatGrape.Services.Messaging.pdb
+D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Messaging\bin\Debug\netstandard2.1\TheGreatGrape.Services.Messaging.deps.json
+D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Messaging\bin\Debug\netstandard2.1\TheGreatGrape.Services.Messaging.dll
+D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Messaging\bin\Debug\netstandard2.1\TheGreatGrape.Services.Messaging.pdb
+D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Messaging\obj\Debug\netstandard2.1\TheGreatGrape.Services.Messaging.csproj.AssemblyReference.cache
+D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Messaging\obj\Debug\netstandard2.1\TheGreatGrape.Services.Messaging.AssemblyInfoInputs.cache
+D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Messaging\obj\Debug\netstandard2.1\TheGreatGrape.Services.Messaging.AssemblyInfo.cs
+D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Messaging\obj\Debug\netstandard2.1\TheGreatGrape.Services.Messaging.csproj.CoreCompileInputs.cache
+D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Messaging\obj\Debug\netstandard2.1\TheGreatGrape.Services.Messaging.dll
+D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Messaging\obj\Debug\netstandard2.1\TheGreatGrape.Services.Messaging.pdb

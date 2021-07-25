@@ -12,8 +12,8 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("TheGreatGrape.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\LocalRepository\\WineShop\\Data\\TheGreatGrape.Data", "TheGreatGrape.Data.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("TheGreatGrape.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\LocalRepository\\WineShop\\Web\\TheGreatGrape.Web", "TheGreatGrape.Web.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("TheGreatGrape.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\LocalRepository\\Repository\\WineShop\\Data\\TheGreatGrape.Data", "TheGreatGrape.Data.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("TheGreatGrape.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\LocalRepository\\Repository\\WineShop\\Web\\TheGreatGrape.Web", "TheGreatGrape.Web.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("TheGreatGrape.Web.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

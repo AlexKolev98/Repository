@@ -11487,11 +11487,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LocalRepository\\WineShop\\Tests\\TheGreatGrape.Web.Tests\\TheGreatGrape.Web.Tests.csproj",
+      "projectUniqueName": "D:\\LocalRepository\\Repository\\WineShop\\Tests\\TheGreatGrape.Web.Tests\\TheGreatGrape.Web.Tests.csproj",
       "projectName": "TheGreatGrape.Web.Tests",
-      "projectPath": "D:\\LocalRepository\\WineShop\\Tests\\TheGreatGrape.Web.Tests\\TheGreatGrape.Web.Tests.csproj",
+      "projectPath": "D:\\LocalRepository\\Repository\\WineShop\\Tests\\TheGreatGrape.Web.Tests\\TheGreatGrape.Web.Tests.csproj",
       "packagesPath": "C:\\Users\\Gamer\\.nuget\\packages\\",
-      "outputPath": "D:\\LocalRepository\\WineShop\\Tests\\TheGreatGrape.Web.Tests\\obj\\",
+      "outputPath": "D:\\LocalRepository\\Repository\\WineShop\\Tests\\TheGreatGrape.Web.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gamer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -11508,8 +11508,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\LocalRepository\\WineShop\\Web\\TheGreatGrape.Web\\TheGreatGrape.Web.csproj": {
-              "projectPath": "D:\\LocalRepository\\WineShop\\Web\\TheGreatGrape.Web\\TheGreatGrape.Web.csproj"
+            "D:\\LocalRepository\\Repository\\WineShop\\Web\\TheGreatGrape.Web\\TheGreatGrape.Web.csproj": {
+              "projectPath": "D:\\LocalRepository\\Repository\\WineShop\\Web\\TheGreatGrape.Web\\TheGreatGrape.Web.csproj"
             }
           }
         }

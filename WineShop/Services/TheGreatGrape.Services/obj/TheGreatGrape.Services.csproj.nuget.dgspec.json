@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services\\TheGreatGrape.Services.csproj": {}
+    "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services\\TheGreatGrape.Services.csproj": {}
   },
   "projects": {
-    "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services\\TheGreatGrape.Services.csproj": {
+    "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services\\TheGreatGrape.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services\\TheGreatGrape.Services.csproj",
+        "projectUniqueName": "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services\\TheGreatGrape.Services.csproj",
         "projectName": "TheGreatGrape.Services",
-        "projectPath": "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services\\TheGreatGrape.Services.csproj",
+        "projectPath": "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services\\TheGreatGrape.Services.csproj",
         "packagesPath": "C:\\Users\\Gamer\\.nuget\\packages\\",
-        "outputPath": "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services\\obj\\",
+        "outputPath": "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gamer\\AppData\\Roaming\\NuGet\\NuGet.Config",

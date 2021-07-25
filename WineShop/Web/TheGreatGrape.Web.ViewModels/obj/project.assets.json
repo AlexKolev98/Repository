@@ -1205,11 +1205,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LocalRepository\\WineShop\\Web\\TheGreatGrape.Web.ViewModels\\TheGreatGrape.Web.ViewModels.csproj",
+      "projectUniqueName": "D:\\LocalRepository\\Repository\\WineShop\\Web\\TheGreatGrape.Web.ViewModels\\TheGreatGrape.Web.ViewModels.csproj",
       "projectName": "TheGreatGrape.Web.ViewModels",
-      "projectPath": "D:\\LocalRepository\\WineShop\\Web\\TheGreatGrape.Web.ViewModels\\TheGreatGrape.Web.ViewModels.csproj",
+      "projectPath": "D:\\LocalRepository\\Repository\\WineShop\\Web\\TheGreatGrape.Web.ViewModels\\TheGreatGrape.Web.ViewModels.csproj",
       "packagesPath": "C:\\Users\\Gamer\\.nuget\\packages\\",
-      "outputPath": "D:\\LocalRepository\\WineShop\\Web\\TheGreatGrape.Web.ViewModels\\obj\\",
+      "outputPath": "D:\\LocalRepository\\Repository\\WineShop\\Web\\TheGreatGrape.Web.ViewModels\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gamer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1226,11 +1226,11 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
-            "D:\\LocalRepository\\WineShop\\Data\\TheGreatGrape.Data.Models\\TheGreatGrape.Data.Models.csproj": {
-              "projectPath": "D:\\LocalRepository\\WineShop\\Data\\TheGreatGrape.Data.Models\\TheGreatGrape.Data.Models.csproj"
+            "D:\\LocalRepository\\Repository\\WineShop\\Data\\TheGreatGrape.Data.Models\\TheGreatGrape.Data.Models.csproj": {
+              "projectPath": "D:\\LocalRepository\\Repository\\WineShop\\Data\\TheGreatGrape.Data.Models\\TheGreatGrape.Data.Models.csproj"
             },
-            "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services.Mapping\\TheGreatGrape.Services.Mapping.csproj": {
-              "projectPath": "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services.Mapping\\TheGreatGrape.Services.Mapping.csproj"
+            "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services.Mapping\\TheGreatGrape.Services.Mapping.csproj": {
+              "projectPath": "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services.Mapping\\TheGreatGrape.Services.Mapping.csproj"
             }
           }
         }

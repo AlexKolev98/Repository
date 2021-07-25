@@ -22,3 +22,15 @@ D:\LocalRepository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard
 D:\LocalRepository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.csproj.CopyComplete
 D:\LocalRepository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.dll
 D:\LocalRepository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.pdb
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\bin\Debug\netstandard2.1\TheGreatGrape.Data.Models.deps.json
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\bin\Debug\netstandard2.1\TheGreatGrape.Data.Models.dll
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\bin\Debug\netstandard2.1\TheGreatGrape.Data.Models.pdb
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\bin\Debug\netstandard2.1\TheGreatGrape.Data.Common.dll
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\bin\Debug\netstandard2.1\TheGreatGrape.Data.Common.pdb
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.csproj.AssemblyReference.cache
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.AssemblyInfoInputs.cache
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.AssemblyInfo.cs
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.csproj.CoreCompileInputs.cache
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.csproj.CopyComplete
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.dll
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.pdb

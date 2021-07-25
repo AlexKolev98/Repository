@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H8T1C/IOwsFyYNvqmcRKs43Xy7p8h991sLO7yYF4wb9MCAygglmoYOgePedA4yQuq+51E0VMtVAyfrP+hzLu3A==",
+  "dgSpecHash": "A0RYTfIizu7YW2njfZQGyKQ3MVjxUUSPUTHZ9nIRgpDs9VFqpbQREnnv2UlRevUCWGVpcr2LsCcGJ7A4/n4wqw==",
   "success": true,
-  "projectFilePath": "D:\\LocalRepository\\WineShop\\Tests\\TheGreatGrape.Web.Tests\\TheGreatGrape.Web.Tests.csproj",
+  "projectFilePath": "D:\\LocalRepository\\Repository\\WineShop\\Tests\\TheGreatGrape.Web.Tests\\TheGreatGrape.Web.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gamer\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Gamer\\.nuget\\packages\\buildbundlerminifier\\3.2.449\\buildbundlerminifier.3.2.449.nupkg.sha512",

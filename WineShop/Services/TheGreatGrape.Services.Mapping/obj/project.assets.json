@@ -236,11 +236,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services.Mapping\\TheGreatGrape.Services.Mapping.csproj",
+      "projectUniqueName": "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services.Mapping\\TheGreatGrape.Services.Mapping.csproj",
       "projectName": "TheGreatGrape.Services.Mapping",
-      "projectPath": "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services.Mapping\\TheGreatGrape.Services.Mapping.csproj",
+      "projectPath": "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services.Mapping\\TheGreatGrape.Services.Mapping.csproj",
       "packagesPath": "C:\\Users\\Gamer\\.nuget\\packages\\",
-      "outputPath": "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services.Mapping\\obj\\",
+      "outputPath": "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services.Mapping\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gamer\\AppData\\Roaming\\NuGet\\NuGet.Config",

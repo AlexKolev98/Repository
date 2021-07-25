@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LocalRepository\\WineShop\\Web\\TheGreatGrape.Web.Infrastructure\\TheGreatGrape.Web.Infrastructure.csproj": {}
+    "D:\\LocalRepository\\Repository\\WineShop\\Web\\TheGreatGrape.Web.Infrastructure\\TheGreatGrape.Web.Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\LocalRepository\\WineShop\\Web\\TheGreatGrape.Web.Infrastructure\\TheGreatGrape.Web.Infrastructure.csproj": {
+    "D:\\LocalRepository\\Repository\\WineShop\\Web\\TheGreatGrape.Web.Infrastructure\\TheGreatGrape.Web.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LocalRepository\\WineShop\\Web\\TheGreatGrape.Web.Infrastructure\\TheGreatGrape.Web.Infrastructure.csproj",
+        "projectUniqueName": "D:\\LocalRepository\\Repository\\WineShop\\Web\\TheGreatGrape.Web.Infrastructure\\TheGreatGrape.Web.Infrastructure.csproj",
         "projectName": "TheGreatGrape.Web.Infrastructure",
-        "projectPath": "D:\\LocalRepository\\WineShop\\Web\\TheGreatGrape.Web.Infrastructure\\TheGreatGrape.Web.Infrastructure.csproj",
+        "projectPath": "D:\\LocalRepository\\Repository\\WineShop\\Web\\TheGreatGrape.Web.Infrastructure\\TheGreatGrape.Web.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Gamer\\.nuget\\packages\\",
-        "outputPath": "D:\\LocalRepository\\WineShop\\Web\\TheGreatGrape.Web.Infrastructure\\obj\\",
+        "outputPath": "D:\\LocalRepository\\Repository\\WineShop\\Web\\TheGreatGrape.Web.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gamer\\AppData\\Roaming\\NuGet\\NuGet.Config",

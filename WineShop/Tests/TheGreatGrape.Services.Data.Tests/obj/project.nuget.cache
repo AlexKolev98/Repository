@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V9C2oFFqzmVz2Q4+LWyEt4pnLWNaCA7lfdOlHBl9FrxvthNeAh0rXoVOqhU0Om4BEW0P++w2SghkB1FhRgx6Cg==",
+  "dgSpecHash": "oQzHDb1UlFAYnhtSYiJJ0GpFPOvxEW6SR6EgDRXhTOuRvAZdFYhU0fib6St9M4ZalUTeNWh7OiayJ4Ff984Usg==",
   "success": true,
-  "projectFilePath": "D:\\LocalRepository\\WineShop\\Tests\\TheGreatGrape.Services.Data.Tests\\TheGreatGrape.Services.Data.Tests.csproj",
+  "projectFilePath": "D:\\LocalRepository\\Repository\\WineShop\\Tests\\TheGreatGrape.Services.Data.Tests\\TheGreatGrape.Services.Data.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gamer\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Gamer\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QteLeNJJZlYeH/tTVeI2mp07RGjubs+PcAjRj360Roh3HZ9lLBXW6EJcY0LSj0wjypOsi+hEv02nq0lHyDddFA==",
+  "dgSpecHash": "96DkaQ0Ci+xJGwSShJbicB4O1gN0B2nuRQU5Xs014FDK1A8Xt4BcNuC2K8HysAYyWLLr09insicB7dQEg9YBIA==",
   "success": true,
-  "projectFilePath": "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services.Messaging\\TheGreatGrape.Services.Messaging.csproj",
+  "projectFilePath": "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services.Messaging\\TheGreatGrape.Services.Messaging.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gamer\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\Gamer\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",

@@ -14,3 +14,12 @@ D:\LocalRepository\WineShop\Web\TheGreatGrape.Web.Infrastructure\obj\Debug\netst
 D:\LocalRepository\WineShop\Web\TheGreatGrape.Web.Infrastructure\obj\Debug\netstandard2.1\TheGreatGrape.Web.Infrastructure.csproj.CoreCompileInputs.cache
 D:\LocalRepository\WineShop\Web\TheGreatGrape.Web.Infrastructure\obj\Debug\netstandard2.1\TheGreatGrape.Web.Infrastructure.dll
 D:\LocalRepository\WineShop\Web\TheGreatGrape.Web.Infrastructure\obj\Debug\netstandard2.1\TheGreatGrape.Web.Infrastructure.pdb
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.Infrastructure\bin\Debug\netstandard2.1\TheGreatGrape.Web.Infrastructure.deps.json
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.Infrastructure\bin\Debug\netstandard2.1\TheGreatGrape.Web.Infrastructure.dll
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.Infrastructure\bin\Debug\netstandard2.1\TheGreatGrape.Web.Infrastructure.pdb
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.Infrastructure\obj\Debug\netstandard2.1\TheGreatGrape.Web.Infrastructure.csproj.AssemblyReference.cache
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.Infrastructure\obj\Debug\netstandard2.1\TheGreatGrape.Web.Infrastructure.AssemblyInfoInputs.cache
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.Infrastructure\obj\Debug\netstandard2.1\TheGreatGrape.Web.Infrastructure.AssemblyInfo.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.Infrastructure\obj\Debug\netstandard2.1\TheGreatGrape.Web.Infrastructure.csproj.CoreCompileInputs.cache
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.Infrastructure\obj\Debug\netstandard2.1\TheGreatGrape.Web.Infrastructure.dll
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.Infrastructure\obj\Debug\netstandard2.1\TheGreatGrape.Web.Infrastructure.pdb

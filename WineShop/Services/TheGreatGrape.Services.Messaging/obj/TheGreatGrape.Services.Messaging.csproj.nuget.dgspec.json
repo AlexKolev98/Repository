@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services.Messaging\\TheGreatGrape.Services.Messaging.csproj": {}
+    "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services.Messaging\\TheGreatGrape.Services.Messaging.csproj": {}
   },
   "projects": {
-    "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services.Messaging\\TheGreatGrape.Services.Messaging.csproj": {
+    "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services.Messaging\\TheGreatGrape.Services.Messaging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services.Messaging\\TheGreatGrape.Services.Messaging.csproj",
+        "projectUniqueName": "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services.Messaging\\TheGreatGrape.Services.Messaging.csproj",
         "projectName": "TheGreatGrape.Services.Messaging",
-        "projectPath": "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services.Messaging\\TheGreatGrape.Services.Messaging.csproj",
+        "projectPath": "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services.Messaging\\TheGreatGrape.Services.Messaging.csproj",
         "packagesPath": "C:\\Users\\Gamer\\.nuget\\packages\\",
-        "outputPath": "D:\\LocalRepository\\WineShop\\Services\\TheGreatGrape.Services.Messaging\\obj\\",
+        "outputPath": "D:\\LocalRepository\\Repository\\WineShop\\Services\\TheGreatGrape.Services.Messaging\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gamer\\AppData\\Roaming\\NuGet\\NuGet.Config",

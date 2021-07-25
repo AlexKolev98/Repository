@@ -65,11 +65,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LocalRepository\\WineShop\\TheGreatGrape.Common\\TheGreatGrape.Common.csproj",
+      "projectUniqueName": "D:\\LocalRepository\\Repository\\WineShop\\TheGreatGrape.Common\\TheGreatGrape.Common.csproj",
       "projectName": "TheGreatGrape.Common",
-      "projectPath": "D:\\LocalRepository\\WineShop\\TheGreatGrape.Common\\TheGreatGrape.Common.csproj",
+      "projectPath": "D:\\LocalRepository\\Repository\\WineShop\\TheGreatGrape.Common\\TheGreatGrape.Common.csproj",
       "packagesPath": "C:\\Users\\Gamer\\.nuget\\packages\\",
-      "outputPath": "D:\\LocalRepository\\WineShop\\TheGreatGrape.Common\\obj\\",
+      "outputPath": "D:\\LocalRepository\\Repository\\WineShop\\TheGreatGrape.Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gamer\\AppData\\Roaming\\NuGet\\NuGet.Config",
