@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TheGreatGrape.Data.Common.Models;
-using TheGreatGrape.Data.Models.WineShop;
-
-namespace TheGreatGrape.Data.Models.TheGreatGrape.Models
+﻿namespace TheGreatGrape.Data.Models.TheGreatGrape.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Text;
+
+    using global::TheGreatGrape.Data.Common.Models;
+    using global::TheGreatGrape.Data.Models.WineShop;
+
     public class Category : BaseDeletableModel<int>
     {
         public Category()
@@ -13,6 +15,7 @@ namespace TheGreatGrape.Data.Models.TheGreatGrape.Models
             this.Wines = new HashSet<Wine>();
         }
 
+        [Required]
         public string Name { get; set; }
 
         public ICollection<Wine> Wines { get; set; }

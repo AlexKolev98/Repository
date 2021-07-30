@@ -17,6 +17,7 @@
     using TheGreatGrape.Data.Repositories;
     using TheGreatGrape.Data.Seeding;
     using TheGreatGrape.Services.Data;
+    using TheGreatGrape.Services.Data.Create;
     using TheGreatGrape.Services.Mapping;
     using TheGreatGrape.Services.Messaging;
     using TheGreatGrape.Web.ViewModels;
@@ -63,8 +64,11 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<IGetCategoriesService, GetCategoriesService>();
-            services.AddTransient<IGetWinesService, GetWinesService>();
+            services.AddTransient<ICategoriesService, CategoriesService>();
+            services.AddTransient<IWineriesService, WineriesService>();
+            services.AddTransient<IGrapesService, GrapesService>();
+            services.AddTransient<IWinesService, WinesService>();
+            services.AddTransient<ICreateWineService, CreateWineService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

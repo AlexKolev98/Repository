@@ -18,6 +18,8 @@
 
         public ICollection<Wine> Wines { get; set; }
 
+        public string Description { get; set; }
+
         public int UserId { get; set; }
 
         public ApplicationUser User { get; set; }

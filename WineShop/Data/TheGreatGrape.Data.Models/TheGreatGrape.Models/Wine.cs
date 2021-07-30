@@ -1,12 +1,12 @@
 ﻿namespace TheGreatGrape.Data.Models.WineShop
 {
-    using global::TheGreatGrape.Data.Common.Models;
-    using global::TheGreatGrape.Data.Models.TheGreatGrape.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Text;
 
+    using global::TheGreatGrape.Data.Common.Models;
+    using global::TheGreatGrape.Data.Models.TheGreatGrape.Models;
 
     public class Wine : BaseDeletableModel<int>
     {
@@ -17,6 +17,12 @@
 
         [Required]
         public string Name { get; set; }
+
+        public decimal Price { get; set; }
+
+        public int Volume { get; set; }
+
+        public int Year { get; set; }
 
         public int WineryId { get; set; }
 

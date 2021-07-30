@@ -16,9 +16,9 @@
 
     public class HomeController : BaseController
     {
-        private readonly IGetCategoriesService categoriesService;
+        private readonly ICategoriesService categoriesService;
 
-        public HomeController(IGetCategoriesService categoriesService)
+        public HomeController(ICategoriesService categoriesService)
         {
             this.categoriesService = categoriesService;
         }

@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\Services\TheGreatGrape.Services.Mapping\TheGreatGrape.Services.Mapping.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Home\" />
+  </ItemGroup>
+
 </Project>
