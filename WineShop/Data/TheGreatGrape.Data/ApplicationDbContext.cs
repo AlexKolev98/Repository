@@ -31,9 +31,9 @@
 
         public DbSet<Wine> Wines { get; set; }
 
-        public DbSet<WineGrape> WineGrapes { get; set; }
-
         public DbSet<WineImage> WineImages { get; set; }
+
+        public DbSet<WineGrape> WineGrapes { get; set; }
 
         public DbSet<Winery> Wineries { get; set; }
 
@@ -87,6 +87,7 @@
             {
                 foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
             }
+
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)

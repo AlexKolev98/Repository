@@ -12,13 +12,15 @@
     {
         public Wine()
         {
-            this.WineGrapes = new HashSet<WineGrape>();
+            this.Grapes = new HashSet<WineGrape>();
         }
 
         [Required]
         public string Name { get; set; }
 
         public decimal Price { get; set; }
+
+        public decimal Alcohol { get; set; }
 
         public int Volume { get; set; }
 
@@ -28,7 +30,7 @@
 
         public Winery Winery { get; set; }
 
-        public virtual ICollection<WineGrape> WineGrapes { get; set; }
+        public ICollection<WineGrape> Grapes { get; set; }
 
         public string Description { get; set; }
 

@@ -339,6 +339,9 @@ namespace TheGreatGrape.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<decimal>("Alcohol")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -391,8 +394,14 @@ namespace TheGreatGrape.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("GrapeId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("WineId")
                         .HasColumnType("int");
@@ -443,6 +452,7 @@ namespace TheGreatGrape.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
@@ -574,13 +584,13 @@ namespace TheGreatGrape.Data.Migrations
             modelBuilder.Entity("TheGreatGrape.Data.Models.WineShop.WineGrape", b =>
                 {
                     b.HasOne("Grape", "Grape")
-                        .WithMany("WineGrapes")
+                        .WithMany("Wines")
                         .HasForeignKey("GrapeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("TheGreatGrape.Data.Models.WineShop.Wine", "Wine")
-                        .WithMany("WineGrapes")
+                        .WithMany("Grapes")
                         .HasForeignKey("WineId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -639,7 +649,7 @@ namespace TheGreatGrape.Data.Migrations
 
             modelBuilder.Entity("Grape", b =>
                 {
-                    b.Navigation("WineGrapes");
+                    b.Navigation("Wines");
                 });
 
             modelBuilder.Entity("TheGreatGrape.Data.Models.ApplicationUser", b =>
@@ -665,7 +675,7 @@ namespace TheGreatGrape.Data.Migrations
 
             modelBuilder.Entity("TheGreatGrape.Data.Models.WineShop.Wine", b =>
                 {
-                    b.Navigation("WineGrapes");
+                    b.Navigation("Grapes");
 
                     b.Navigation("WineImage");
                 });

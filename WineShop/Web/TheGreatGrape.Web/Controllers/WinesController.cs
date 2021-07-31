@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using TheGreatGrape.Services.Data;
     using TheGreatGrape.Services.Data.Create;
@@ -56,6 +56,7 @@
             return this.View(viewModel);
         }
 
+        [Authorize]
         public IActionResult Create()
         {
             var viewModel = new CreateWineInputModel();
@@ -65,6 +66,7 @@
             return this.View(viewModel);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(CreateWineInputModel input)
         {
@@ -75,6 +77,8 @@
                 input.Grapes = this.grapesService.GetAllAsKeyValuePairs();
                 return this.View(input);
             }
+
+            await this.createWineService.CreateAsync(input);
 
             return this.Redirect("/");
         }

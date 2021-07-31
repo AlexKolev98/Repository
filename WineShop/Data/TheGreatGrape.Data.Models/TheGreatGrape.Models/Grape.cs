@@ -8,11 +8,11 @@ public class Grape : BaseDeletableModel<int>
     {
         public Grape()
         {
-            this.WineGrapes = new HashSet<WineGrape>();
+            this.Wines = new HashSet<WineGrape>();
         }
 
         [Required]
         public string Name { get; set; }
 
-        public virtual ICollection<WineGrape> WineGrapes { get; set; }
+        public ICollection<WineGrape> Wines { get; set; }
 }

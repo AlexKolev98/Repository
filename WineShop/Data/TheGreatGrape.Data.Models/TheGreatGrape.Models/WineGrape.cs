@@ -1,17 +1,15 @@
 ﻿namespace TheGreatGrape.Data.Models.WineShop
 {
-    using System.Collections.Generic;
+    using global::TheGreatGrape.Data.Common.Models;
 
-    public class WineGrape
+    public class WineGrape : BaseModel<int>
     {
-        public int Id { get; set; }
-
         public int WineId { get; set; }
 
         public int GrapeId { get; set; }
 
-        public virtual Wine Wine { get; set; }
+        public Grape Grape { get; set; }
 
-        public virtual Grape Grape { get; set; }
+        public Wine Wine { get; set; }
     }
 }
