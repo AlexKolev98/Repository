@@ -19,5 +19,9 @@
         public string Name { get; set; }
 
         public ICollection<Wine> Wines { get; set; }
+
+        public string AddedByUserId { get; set; }
+
+        public ApplicationUser AddedByUser { get; set; }
     }
 }

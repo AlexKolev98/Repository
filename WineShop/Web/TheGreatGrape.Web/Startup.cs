@@ -71,6 +71,7 @@
             services.AddTransient<ICreateWineService, CreateWineService>();
             services.AddTransient<ICreateGrapeService, CreateGrapeService>();
             services.AddTransient<ICreateWineryService, CreateWineryService>();
+            services.AddTransient<ICountriesService, CountriesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

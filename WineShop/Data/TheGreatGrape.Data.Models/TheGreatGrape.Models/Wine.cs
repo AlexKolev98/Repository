@@ -7,6 +7,7 @@
 
     using global::TheGreatGrape.Data.Common.Models;
     using global::TheGreatGrape.Data.Models.TheGreatGrape.Models;
+    using global::TheGreatGrape.Data.Models.TheGreatGrape.Models.Enums;
 
     public class Wine : BaseDeletableModel<int>
     {
@@ -34,10 +35,23 @@
 
         public string Description { get; set; }
 
-        public virtual WineImage WineImage { get; set; }
+        public ApplicationUser AddedByUser { get; set; }
+
+        public string AddedByUserId{ get; set; }
 
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }
+
+        public string ImageUrl { get; set; }
+
+        public virtual WineImage Image { get; set; }
+
+        public Country Country { get; set; }
+
+        public string CountryId { get; set; }
+
+        public SweetnessEnum Sweetness { get; set; }
+
     }
 }

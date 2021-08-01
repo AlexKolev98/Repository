@@ -6,16 +6,18 @@
 
     using global::TheGreatGrape.Data.Common.Models;
 
-    public class WineImage
+    public class WineImage : BaseDeletableModel<int>
     {
-        public int Id { get; set; }
-
-        public int ImageId { get; set; }
-
         public int WineId { get; set; }
 
-        public virtual Wine Wine { get; set; }
+        public Wine Wine { get; set; }
 
-        public virtual Image Image { get; set; }
+        public string Extension { get; set; }
+
+        public string RemoteImageUrl { get; set; }
+
+        public string AddedByUserId { get; set; }
+
+        public ApplicationUser AddedByUser { get; set; }
     }
 }

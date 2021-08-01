@@ -6,7 +6,7 @@
 
     using global::TheGreatGrape.Data.Common.Models;
 
-    public class Image : BaseModel<int>
+    public class Image : BaseDeletableModel<int>
     {
         public Image()
         {
@@ -14,16 +14,12 @@
             this.WineryImages = new HashSet<WineryImage>();
         }
 
+        public int WineImageId { get; set; }
+
+        public int WineryImageId { get; set; }
+
         public virtual ICollection<WineImage> WineImages { get; set; }
 
         public virtual ICollection<WineryImage> WineryImages { get; set; }
-
-        public string Extension { get; set; }
-
-        public string RemoteImageUrl { get; set; }
-
-        public string AddedByUserId { get; set; }
-
-        public ApplicationUser AddedByUser { get; set; }
     }
 }

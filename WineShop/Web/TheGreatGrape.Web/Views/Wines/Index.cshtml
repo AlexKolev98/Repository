@@ -1,22 +1,21 @@
 ﻿@using TheGreatGrape.Common
-@model TheGreatGrape.Web.ViewModels.Wines.GetWinesViewModel
+@model TheGreatGrape.Web.ViewModels.Wines.WinesListViewModel
 @{
     this.ViewData["Title"] = "All Wines";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Wines</h1>
-    <p>
-        <style>
-            ul#menu li {
-                display: inline
-            }
-        </style>
-        <ul id="menu">
-            @foreach (var item in Model.Wines)
-            {
-                <li>@item.Name</li>
-            }
-        </ul>
-    </p>
+<div>
+    <h1 class="display-4 text-center">Wines</h1>
+    <div class="row">
+        @foreach (var item in Model.Wines)
+        {
+            <div class="d-flex align-items-center col-md-2">
+                <div class="flex-shrink-0">
+                    <img src="@item.ImageUrl" alt="..." width="175">
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    @item.Name
+                </div>
+            </div>
+        }
+    </div>
 </div>

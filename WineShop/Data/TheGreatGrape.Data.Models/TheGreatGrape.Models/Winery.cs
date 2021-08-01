@@ -21,9 +21,11 @@
         [Required]
         public string Description { get; set; }
 
-        public int UserId { get; set; }
+        public string AddedByUserId { get; set; }
 
-        public ApplicationUser User { get; set; }
+        public ApplicationUser AddedByUser { get; set; }
+
+        public string ImageUrl { get; set; }
 
         public virtual ICollection<WineryImage> WineryImages { get; set; }
     }
