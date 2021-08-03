@@ -43,11 +43,31 @@
 
         public IActionResult Index(int id = 1)
         {
-            const int itemsPerPage = 12;
+            const int itemsPerPage = 3;
             var viewModel = new WinesListViewModel
             {
                 PageNumber = id,
-                Wines = this.winesService.GetAll(id, itemsPerPage),
+                ItemsCount = this.winesService.GetCount(),
+                Wines = this.winesService.GetAll<WinesListViewModel>(id, itemsPerPage),
+            };
+
+            return this.View(viewModel);
+        }
+
+        public IActionResult All(int id = 1)
+        {
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+
+            const int itemsPerPage = 3;
+            var viewModel = new WinesListViewModel
+            {
+                PageNumber = id,
+                ItemsCount = this.winesService.GetCount(),
+                ItemsPerPage = itemsPerPage,
+                Wines = this.winesService.GetAll<WinesListViewModel>(id, itemsPerPage),
             };
 
             return this.View(viewModel);
