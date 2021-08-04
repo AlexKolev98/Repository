@@ -1,22 +1,11 @@
 ﻿namespace TheGreatGrape.Data.Models.WineShop
 {
-    using global::TheGreatGrape.Data.Common.Models;
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using global::TheGreatGrape.Data.Models.TheGreatGrape.Models.Base;
 
-    public class WineryImage : BaseDeletableModel<int>
+    public class WineryImage : Image
     {
         public int WineryId { get; set; }
 
         public Winery Winery { get; set; }
-
-        public string Extension { get; set; }
-
-        public string RemoteImageUrl { get; set; }
-
-        public string AddedByUserId { get; set; }
-
-        public ApplicationUser AddedByUser { get; set; }
     }
 }

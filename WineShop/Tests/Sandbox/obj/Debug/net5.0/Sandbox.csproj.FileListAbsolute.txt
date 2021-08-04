@@ -232,3 +232,6 @@ D:\LocalRepository\Repository\WineShop\Tests\Sandbox\obj\Debug\net5.0\Sandbox.dl
 D:\LocalRepository\Repository\WineShop\Tests\Sandbox\obj\Debug\net5.0\ref\Sandbox.dll
 D:\LocalRepository\Repository\WineShop\Tests\Sandbox\obj\Debug\net5.0\Sandbox.pdb
 D:\LocalRepository\Repository\WineShop\Tests\Sandbox\obj\Debug\net5.0\Sandbox.genruntimeconfig.cache
+D:\LocalRepository\Repository\WineShop\Tests\Sandbox\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
+D:\LocalRepository\Repository\WineShop\Tests\Sandbox\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+D:\LocalRepository\Repository\WineShop\Tests\Sandbox\bin\Debug\net5.0\System.IO.Pipelines.dll

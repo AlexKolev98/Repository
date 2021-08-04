@@ -25,17 +25,15 @@
         {
         }
 
-        public DbSet<Grape> Grapes { get; set; }
-
-        public DbSet<Image> Images { get; set; }
-
         public DbSet<Wine> Wines { get; set; }
 
-        public DbSet<WineImage> WineImages { get; set; }
+        public DbSet<Grape> Grapes { get; set; }
 
         public DbSet<WineGrape> WineGrapes { get; set; }
 
         public DbSet<Winery> Wineries { get; set; }
+
+        public DbSet<WineImage> WineImages { get; set; }
 
         public DbSet<WineryImage> WineryImages { get; set; }
 
