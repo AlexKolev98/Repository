@@ -58,42 +58,6 @@
             return this.View(viewModel);
         }
 
-        public IActionResult All(int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            const int itemsPerPage = 3;
-            var viewModel = new WinesListViewModel
-            {
-                PageNumber = id,
-                ItemsCount = this.winesService.GetCount(),
-                ItemsPerPage = itemsPerPage,
-                Wines = this.winesService.GetAll<WinesListViewModel>(id, itemsPerPage),
-            };
-
-            return this.View(viewModel);
-        }
-
-        public IActionResult Red()
-        {
-            var viewModel = this.winesService.GetRed();
-            return this.View(viewModel);
-        }
-
-        public IActionResult White()
-        {
-            var viewModel = this.winesService.GetWhite();
-            return this.View(viewModel);
-        }
-
-        public IActionResult Rosé()
-        {
-            var viewModel = this.winesService.GetRosé();
-            return this.View(viewModel);
-        }
 
         [Authorize]
         public IActionResult Create()
@@ -131,6 +95,51 @@
             }
 
             return this.Redirect("/");
+        }
+
+        public IActionResult ById(int id)
+        {
+            var viewModel = this.winesService.GetWine<WineViewModel>(id);
+
+            return this.View(viewModel);
+        }
+
+        public IActionResult AllByWinery(int wineryId, int id = 1)
+        {
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+
+            const int itemsPerPage = 3;
+            var viewModel = new WinesListViewModel
+            {
+                PageNumber = id,
+                ItemsCount = this.winesService.GetCount(),
+                ItemsPerPage = itemsPerPage,
+                Wines = this.winesService.GetAllByWinery(id, itemsPerPage, wineryId),
+            };
+
+            return this.View(viewModel);
+        }
+
+        public IActionResult All(int id = 1)
+        {
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+
+            const int itemsPerPage = 3;
+            var viewModel = new WinesListViewModel
+            {
+                PageNumber = id,
+                ItemsCount = this.winesService.GetCount(),
+                ItemsPerPage = itemsPerPage,
+                Wines = this.winesService.GetAll<WinesListViewModel>(id, itemsPerPage),
+            };
+
+            return this.View(viewModel);
         }
     }
 }

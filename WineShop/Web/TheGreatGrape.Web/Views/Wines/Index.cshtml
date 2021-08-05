@@ -3,36 +3,20 @@
 @{
     this.ViewData["Title"] = "All Wines";
 }
-<div>
-    <h1 class="display-4 text-center">Wines</h1>
-    <div class="row">
-        @foreach (var item in Model.Wines)
-        {
-            <div class="d-flex align-items-center col-md-2">
-                <div class="flex-shrink-0">
-                    <img src="@item.ImageUrl" alt="..." width="175">
-                </div>
-                <div class="flex-grow-1 ms-3">
-                    @item.Name
+<div class="row">
+    @foreach (var item in Model.Wines)
+    {
+        <div class="card text-center" style="width: 13rem;">
+            <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><a class="nav-link card-title" asp-area="" asp-controller="Wineries" asp-action="ById" asp-route-id="@item.Id">@item.Name</a></h5>
+                <p class="card-text">@item.Description</p>
+                <p class="card-text">$@item.Price</p>
+                <div class="">
+                    <a href="#" class="btn btn-dark">Add to cart</a>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 </div>
-<nav aria-label="...">
-    <ul class="pagination justify-content-center">
-        <li class="page-item @if (!Model.HasPreviousPage) {<text>disabled</text> } ">
-            <a class="page-link" asp-action="Index" asp-route-id="@Model.PreviousPageNumber">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">@Model.PreviousPageNumber</a></li>
-        <li class="page-item active" aria-current="page">
-            <span class="page-link">
-                @Model.PageNumber
-            </span>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">@Model.NextPageNumber</a></li>
-        <li class="page-item @if (!Model.HasNextPage) {<text>disabled</text> }">
-            <a class="page-link" asp-action="Index" asp-route-id="@Model.NextPageNumber">Next</a>
-        </li>
-    </ul>
-</nav>
+<partial name="_PagingPartial" model="@Model" />
