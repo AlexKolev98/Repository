@@ -1407,3 +1407,4 @@ D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Ra
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wineries\ById.cshtml.g.cs
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\All.cshtml.g.cs
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByWinery.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByGrape.cshtml.g.cs

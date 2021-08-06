@@ -62,16 +62,17 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .footer {
     position: absolute;
-    bottom: 0;
+    bottom: -300px;
     width: 100%;
     white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
+    line-height: 40px; /* Vertically center the text there */
 }
+
 .column {
     float: left;
     width: 50%;
@@ -82,4 +83,8 @@ body {
     content: "";
     display: table;
     clear: both;
+}
+
+.right-column{
+    column-count: 2
 }
