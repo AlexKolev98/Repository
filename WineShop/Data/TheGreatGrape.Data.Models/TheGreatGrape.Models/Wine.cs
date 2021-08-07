@@ -49,7 +49,7 @@
 
         public Country Country { get; set; }
 
-        public string CountryId { get; set; }
+        public int CountryId { get; set; }
 
         public SweetnessEnum Sweetness { get; set; }
 

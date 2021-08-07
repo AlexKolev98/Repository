@@ -358,10 +358,7 @@ namespace TheGreatGrape.Data.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CountryId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("CountryId1")
+                    b.Property<int>("CountryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
@@ -407,7 +404,7 @@ namespace TheGreatGrape.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("CountryId1");
+                    b.HasIndex("CountryId");
 
                     b.HasIndex("IsDeleted");
 
@@ -650,7 +647,9 @@ namespace TheGreatGrape.Data.Migrations
 
                     b.HasOne("TheGreatGrape.Data.Models.WineShop.Country", "Country")
                         .WithMany("Wines")
-                        .HasForeignKey("CountryId1");
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("TheGreatGrape.Data.Models.WineShop.Winery", "Winery")
                         .WithMany("Wines")

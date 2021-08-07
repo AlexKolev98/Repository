@@ -25,8 +25,6 @@
 
         public ApplicationUser AddedByUser { get; set; }
 
-        public string ImageUrl { get; set; }
-
         public virtual ICollection<WineryImage> WineryImages { get; set; }
     }
 }
