@@ -1409,3 +1409,9 @@ D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Ra
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByWinery.cshtml.g.cs
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByGrape.cshtml.g.cs
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Shared\_AllWinesPartial.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllBySweetness.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByColour.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByCountry.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByYear.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByAlcohol.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByVolume.cshtml.g.cs
