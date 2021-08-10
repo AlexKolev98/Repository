@@ -4,6 +4,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using global::TheGreatGrape.Data.Common.Models;
+    using global::TheGreatGrape.Data.Models.TheGreatGrape.Models;
 
     public class Winery : BaseDeletableModel<int>
     {
@@ -11,12 +12,15 @@
         {
             this.Wines = new HashSet<Wine>();
             this.WineryImages = new HashSet<WineryImage>();
+            this.Votes = new HashSet<Vote>();
         }
 
         [Required]
         public string Name { get; set; }
 
         public ICollection<Wine> Wines { get; set; }
+
+        public ICollection<Vote> Votes { get; set; }
 
         [Required]
         public string Description { get; set; }

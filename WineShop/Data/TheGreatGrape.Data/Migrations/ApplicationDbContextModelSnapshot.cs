@@ -313,6 +313,42 @@ namespace TheGreatGrape.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.Vote", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<byte>("Value")
+                        .HasColumnType("tinyint");
+
+                    b.Property<int>("WineId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("WineryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("WineId");
+
+                    b.HasIndex("WineryId");
+
+                    b.ToTable("Votes");
+                });
+
             modelBuilder.Entity("TheGreatGrape.Data.Models.WineShop.Country", b =>
                 {
                     b.Property<int>("Id")
@@ -502,9 +538,6 @@ namespace TheGreatGrape.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -633,6 +666,27 @@ namespace TheGreatGrape.Data.Migrations
                     b.Navigation("AddedByUser");
                 });
 
+            modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.Vote", b =>
+                {
+                    b.HasOne("TheGreatGrape.Data.Models.ApplicationUser", "User")
+                        .WithMany("Votes")
+                        .HasForeignKey("UserId");
+
+                    b.HasOne("TheGreatGrape.Data.Models.WineShop.Wine", "Wine")
+                        .WithMany("Votes")
+                        .HasForeignKey("WineId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("TheGreatGrape.Data.Models.WineShop.Winery", null)
+                        .WithMany("Votes")
+                        .HasForeignKey("WineryId");
+
+                    b.Navigation("User");
+
+                    b.Navigation("Wine");
+                });
+
             modelBuilder.Entity("TheGreatGrape.Data.Models.WineShop.Wine", b =>
                 {
                     b.HasOne("TheGreatGrape.Data.Models.ApplicationUser", "AddedByUser")
@@ -740,6 +794,8 @@ namespace TheGreatGrape.Data.Migrations
                     b.Navigation("Logins");
 
                     b.Navigation("Roles");
+
+                    b.Navigation("Votes");
                 });
 
             modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.Category", b =>
@@ -757,10 +813,14 @@ namespace TheGreatGrape.Data.Migrations
                     b.Navigation("Grapes");
 
                     b.Navigation("Image");
+
+                    b.Navigation("Votes");
                 });
 
             modelBuilder.Entity("TheGreatGrape.Data.Models.WineShop.Winery", b =>
                 {
+                    b.Navigation("Votes");
+
                     b.Navigation("WineryImages");
 
                     b.Navigation("Wines");

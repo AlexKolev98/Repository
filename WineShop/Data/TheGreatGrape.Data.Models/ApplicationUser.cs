@@ -5,7 +5,7 @@ namespace TheGreatGrape.Data.Models
     using System.Collections.Generic;
 
     using global::TheGreatGrape.Data.Common.Models;
-
+    using global::TheGreatGrape.Data.Models.TheGreatGrape.Models;
     using Microsoft.AspNetCore.Identity;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntityRepository
@@ -16,6 +16,7 @@ namespace TheGreatGrape.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+            this.Votes = new HashSet<Vote>();
         }
 
         // Audit info
@@ -33,5 +34,7 @@ namespace TheGreatGrape.Data.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        public virtual ICollection<Vote> Votes { get; set; }
     }
 }

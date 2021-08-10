@@ -14,6 +14,7 @@
         public Wine()
         {
             this.Grapes = new HashSet<WineGrape>();
+            this.Votes = new HashSet<Vote>();
         }
 
         [Required]
@@ -32,6 +33,8 @@
         public Winery Winery { get; set; }
 
         public ICollection<WineGrape> Grapes { get; set; }
+
+        public ICollection<Vote> Votes { get; set; }
 
         public string Description { get; set; }
 
