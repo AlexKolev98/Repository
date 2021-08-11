@@ -1415,3 +1415,6 @@ D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Ra
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByYear.cshtml.g.cs
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByAlcohol.cshtml.g.cs
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByVolume.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Cart\Add.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Shared\_ShoppingCartPartial.cshtml.g.cs

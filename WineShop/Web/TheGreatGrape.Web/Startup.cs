@@ -17,6 +17,7 @@
     using TheGreatGrape.Data.Repositories;
     using TheGreatGrape.Data.Seeding;
     using TheGreatGrape.Services.Data;
+    using TheGreatGrape.Services.Data.Contracts;
     using TheGreatGrape.Services.Data.Create;
     using TheGreatGrape.Services.Mapping;
     using TheGreatGrape.Services.Messaging;
@@ -77,6 +78,8 @@
             services.AddTransient<ICreateWineryService, CreateWineryService>();
             services.AddTransient<ICountriesService, CountriesService>();
             services.AddTransient<IVotesService, VotesService>();
+            services.AddTransient<IShoppingCartService, ShoppingCartService>();
+            services.AddTransient<ICreateShoppingCartService, CreateShoppingCartService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -256,6 +256,9 @@ namespace TheGreatGrape.Data.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -276,6 +279,35 @@ namespace TheGreatGrape.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.CartWine", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("WineId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShoppingCartId");
+
+                    b.HasIndex("WineId");
+
+                    b.ToTable("CartItems");
                 });
 
             modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.Category", b =>
@@ -311,6 +343,38 @@ namespace TheGreatGrape.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.ShoppingCart", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("ShoppingCarts");
                 });
 
             modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.Vote", b =>
@@ -657,6 +721,23 @@ namespace TheGreatGrape.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.CartWine", b =>
+                {
+                    b.HasOne("TheGreatGrape.Data.Models.TheGreatGrape.Models.ShoppingCart", "ShoppingCart")
+                        .WithMany("CartWines")
+                        .HasForeignKey("ShoppingCartId");
+
+                    b.HasOne("TheGreatGrape.Data.Models.WineShop.Wine", "Wine")
+                        .WithMany("CartWines")
+                        .HasForeignKey("WineId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("ShoppingCart");
+
+                    b.Navigation("Wine");
+                });
+
             modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.Category", b =>
                 {
                     b.HasOne("TheGreatGrape.Data.Models.ApplicationUser", "AddedByUser")
@@ -664,6 +745,15 @@ namespace TheGreatGrape.Data.Migrations
                         .HasForeignKey("AddedByUserId");
 
                     b.Navigation("AddedByUser");
+                });
+
+            modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.ShoppingCart", b =>
+                {
+                    b.HasOne("TheGreatGrape.Data.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.Vote", b =>
@@ -803,6 +893,11 @@ namespace TheGreatGrape.Data.Migrations
                     b.Navigation("Wines");
                 });
 
+            modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.ShoppingCart", b =>
+                {
+                    b.Navigation("CartWines");
+                });
+
             modelBuilder.Entity("TheGreatGrape.Data.Models.WineShop.Country", b =>
                 {
                     b.Navigation("Wines");
@@ -810,6 +905,8 @@ namespace TheGreatGrape.Data.Migrations
 
             modelBuilder.Entity("TheGreatGrape.Data.Models.WineShop.Wine", b =>
                 {
+                    b.Navigation("CartWines");
+
                     b.Navigation("Grapes");
 
                     b.Navigation("Image");

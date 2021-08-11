@@ -60,7 +60,6 @@
             return this.View(viewModel);
         }
 
-
         [Authorize]
         public IActionResult Create()
         {
