@@ -15,7 +15,6 @@
         {
             this.Grapes = new HashSet<WineGrape>();
             this.Votes = new HashSet<Vote>();
-            this.CartWines = new HashSet<CartWine>();
         }
 
         [Required]
@@ -56,8 +55,5 @@
         public int CountryId { get; set; }
 
         public SweetnessEnum Sweetness { get; set; }
-
-        public virtual ICollection<CartWine> CartWines { get; set; }
-
     }
 }

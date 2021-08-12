@@ -1,14 +1,10 @@
-﻿namespace TheGreatGrape.Web.ViewModels.Carts
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
+namespace TheGreatGrape.Web.ViewModels.Carts
+{
     public class AddItemInputModel
     {
-        public int Quantity { get; set; }
-
-        public ShoppingCartViewModel ShoppingCart { get; set; }
-
     }
 }

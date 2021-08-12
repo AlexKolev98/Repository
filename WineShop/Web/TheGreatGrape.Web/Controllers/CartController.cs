@@ -12,21 +12,17 @@
     using TheGreatGrape.Data.Models;
     using TheGreatGrape.Data.Models.WineShop;
     using TheGreatGrape.Services.Data;
-    using TheGreatGrape.Services.Data.Contracts;
     using TheGreatGrape.Web.ViewModels.Carts;
 
     public class CartController : BaseController
     {
-        private readonly IShoppingCartService shoppingCartService;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IWinesService winesService;
 
         public CartController(
-            IShoppingCartService shoppingCartService,
             UserManager<ApplicationUser> userManager,
             IWinesService winesService)
         {
-            this.shoppingCartService = shoppingCartService;
             this.userManager = userManager;
             this.winesService = winesService;
         }

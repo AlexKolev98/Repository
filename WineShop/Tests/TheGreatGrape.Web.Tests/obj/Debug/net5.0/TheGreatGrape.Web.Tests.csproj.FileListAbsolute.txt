@@ -1612,6 +1612,6 @@ D:\LocalRepository\Repository\WineShop\Tests\TheGreatGrape.Web.Tests\obj\Debug\n
 D:\LocalRepository\Repository\WineShop\Tests\TheGreatGrape.Web.Tests\obj\Debug\net5.0\ref\TheGreatGrape.Web.Tests.dll
 D:\LocalRepository\Repository\WineShop\Tests\TheGreatGrape.Web.Tests\obj\Debug\net5.0\TheGreatGrape.Web.Tests.pdb
 D:\LocalRepository\Repository\WineShop\Tests\TheGreatGrape.Web.Tests\obj\Debug\net5.0\TheGreatGrape.Web.Tests.genruntimeconfig.cache
-D:\LocalRepository\Repository\WineShop\Tests\TheGreatGrape.Web.Tests\bin\Debug\net5.0\TheGreatGrape.Web.StaticWebAssets.xml
 D:\LocalRepository\Repository\WineShop\Tests\TheGreatGrape.Web.Tests\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
 D:\LocalRepository\Repository\WineShop\Tests\TheGreatGrape.Web.Tests\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+D:\LocalRepository\Repository\WineShop\Tests\TheGreatGrape.Web.Tests\bin\Debug\net5.0\TheGreatGrape.Web.StaticWebAssets.xml
