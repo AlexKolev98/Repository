@@ -43,9 +43,9 @@
 
         public DbSet<Vote> Votes { get; set; }
 
-        public DbSet<CartWine> CartItems{ get; set; }
+        public DbSet<CartWine> CartItems { get; set; }
 
-        public DbSet<ShoppingCart> ShoppingCarts{ get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -66,8 +66,14 @@
             return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
+        //Not implemented yet
         protected override void OnModelCreating(ModelBuilder builder)
         {
+           // builder.Entity<ShoppingCart>()
+           //        .HasOne(x => x.User)
+           //        .WithOne(x => x.ShoppingCart)
+           //        .HasForeignKey<ApplicationUser>(x => x.ShoppingCartId)
+           //        .OnDelete(DeleteBehavior.Restrict);
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
 

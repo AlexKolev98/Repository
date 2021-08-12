@@ -1,0 +1,22 @@
+﻿@using TheGreatGrape.Common
+@model TheGreatGrape.Web.ViewModels.Wineries.WineriesListViewModel
+@{
+    this.ViewData["Title"] = "All Wineries";
+}
+<div class="row">
+    @foreach (var winery in Model.Wineries)
+    {
+        <div class="card text-center" style="width: 13rem;">
+            <img class="card-img-top" src="@winery.ImageUrl" alt="Sorry">
+            <div class="card-body">
+                <h5 class="card-title"><a class="nav-link card-title" asp-area="" asp-controller="Wineries" asp-action="ById" asp-route-id="@winery.Id">@winery.Name</a></h5>
+                <p class="card-text">@winery.Description</p>
+                <div class="">
+                    <a class="btn btn-primary btn-white" asp-controller="Wines" asp-action="AllByWinery" asp-route-wineryId="@winery.Id">Wines List</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<partial name="_PagingPartial" model="@Model" />
+

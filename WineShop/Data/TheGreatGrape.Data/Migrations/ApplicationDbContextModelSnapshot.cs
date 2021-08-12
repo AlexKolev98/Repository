@@ -49,8 +49,6 @@ namespace TheGreatGrape.Data.Migrations
 
                     b.HasIndex("AddedByUserId");
 
-                    b.HasIndex("IsDeleted");
-
                     b.ToTable("Grapes");
                 });
 
@@ -85,6 +83,9 @@ namespace TheGreatGrape.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
 
@@ -96,6 +97,8 @@ namespace TheGreatGrape.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("UserId");
 
@@ -110,6 +113,9 @@ namespace TheGreatGrape.Data.Migrations
                     b.Property<string>("ProviderKey")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
 
@@ -118,6 +124,8 @@ namespace TheGreatGrape.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("UserId");
 
@@ -132,7 +140,12 @@ namespace TheGreatGrape.Data.Migrations
                     b.Property<string>("RoleId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("RoleId");
 
@@ -188,8 +201,6 @@ namespace TheGreatGrape.Data.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
@@ -256,9 +267,6 @@ namespace TheGreatGrape.Data.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ShoppingCartId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -267,8 +275,6 @@ namespace TheGreatGrape.Data.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -295,8 +301,8 @@ namespace TheGreatGrape.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<string>("ShoppingCartId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ShoppingCartId")
+                        .HasColumnType("int");
 
                     b.Property<int>("WineId")
                         .HasColumnType("int");
@@ -340,15 +346,15 @@ namespace TheGreatGrape.Data.Migrations
 
                     b.HasIndex("AddedByUserId");
 
-                    b.HasIndex("IsDeleted");
-
                     b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("TheGreatGrape.Data.Models.TheGreatGrape.Models.ShoppingCart", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -363,16 +369,11 @@ namespace TheGreatGrape.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId1")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("ShoppingCarts");
                 });
@@ -436,8 +437,6 @@ namespace TheGreatGrape.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
 
                     b.ToTable("Countries");
                 });
@@ -506,8 +505,6 @@ namespace TheGreatGrape.Data.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.HasIndex("IsDeleted");
-
                     b.HasIndex("WineryId");
 
                     b.ToTable("Wines");
@@ -574,8 +571,6 @@ namespace TheGreatGrape.Data.Migrations
 
                     b.HasIndex("AddedByUserId");
 
-                    b.HasIndex("IsDeleted");
-
                     b.HasIndex("WineId")
                         .IsUnique();
 
@@ -616,8 +611,6 @@ namespace TheGreatGrape.Data.Migrations
 
                     b.HasIndex("AddedByUserId");
 
-                    b.HasIndex("IsDeleted");
-
                     b.ToTable("Wineries");
                 });
 
@@ -654,8 +647,6 @@ namespace TheGreatGrape.Data.Migrations
 
                     b.HasIndex("AddedByUserId");
 
-                    b.HasIndex("IsDeleted");
-
                     b.HasIndex("WineryId");
 
                     b.ToTable("WineryImages");
@@ -675,7 +666,7 @@ namespace TheGreatGrape.Data.Migrations
                     b.HasOne("TheGreatGrape.Data.Models.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -683,8 +674,12 @@ namespace TheGreatGrape.Data.Migrations
                 {
                     b.HasOne("TheGreatGrape.Data.Models.ApplicationUser", null)
                         .WithMany("Claims")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("TheGreatGrape.Data.Models.ApplicationUser", null)
+                        .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -692,23 +687,31 @@ namespace TheGreatGrape.Data.Migrations
                 {
                     b.HasOne("TheGreatGrape.Data.Models.ApplicationUser", null)
                         .WithMany("Logins")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("TheGreatGrape.Data.Models.ApplicationUser", null)
+                        .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
+                    b.HasOne("TheGreatGrape.Data.Models.ApplicationUser", null)
+                        .WithMany("Roles")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("TheGreatGrape.Data.Models.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TheGreatGrape.Data.Models.ApplicationUser", null)
-                        .WithMany("Roles")
+                        .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -717,7 +720,7 @@ namespace TheGreatGrape.Data.Migrations
                     b.HasOne("TheGreatGrape.Data.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -725,12 +728,14 @@ namespace TheGreatGrape.Data.Migrations
                 {
                     b.HasOne("TheGreatGrape.Data.Models.TheGreatGrape.Models.ShoppingCart", "ShoppingCart")
                         .WithMany("CartWines")
-                        .HasForeignKey("ShoppingCartId");
+                        .HasForeignKey("ShoppingCartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("TheGreatGrape.Data.Models.WineShop.Wine", "Wine")
                         .WithMany("CartWines")
                         .HasForeignKey("WineId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("ShoppingCart");
@@ -751,7 +756,7 @@ namespace TheGreatGrape.Data.Migrations
                 {
                     b.HasOne("TheGreatGrape.Data.Models.ApplicationUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
@@ -765,7 +770,7 @@ namespace TheGreatGrape.Data.Migrations
                     b.HasOne("TheGreatGrape.Data.Models.WineShop.Wine", "Wine")
                         .WithMany("Votes")
                         .HasForeignKey("WineId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TheGreatGrape.Data.Models.WineShop.Winery", null)
@@ -786,19 +791,19 @@ namespace TheGreatGrape.Data.Migrations
                     b.HasOne("TheGreatGrape.Data.Models.TheGreatGrape.Models.Category", "Category")
                         .WithMany("Wines")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TheGreatGrape.Data.Models.WineShop.Country", "Country")
                         .WithMany("Wines")
                         .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TheGreatGrape.Data.Models.WineShop.Winery", "Winery")
                         .WithMany("Wines")
                         .HasForeignKey("WineryId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AddedByUser");
@@ -815,13 +820,13 @@ namespace TheGreatGrape.Data.Migrations
                     b.HasOne("Grape", "Grape")
                         .WithMany("Wines")
                         .HasForeignKey("GrapeId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TheGreatGrape.Data.Models.WineShop.Wine", "Wine")
                         .WithMany("Grapes")
                         .HasForeignKey("WineId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Grape");
@@ -838,7 +843,7 @@ namespace TheGreatGrape.Data.Migrations
                     b.HasOne("TheGreatGrape.Data.Models.WineShop.Wine", "Wine")
                         .WithOne("Image")
                         .HasForeignKey("TheGreatGrape.Data.Models.WineShop.WineImage", "WineId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AddedByUser");
@@ -864,7 +869,7 @@ namespace TheGreatGrape.Data.Migrations
                     b.HasOne("TheGreatGrape.Data.Models.WineShop.Winery", "Winery")
                         .WithMany("WineryImages")
                         .HasForeignKey("WineryId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AddedByUser");

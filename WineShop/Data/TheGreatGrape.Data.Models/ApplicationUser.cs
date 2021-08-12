@@ -36,7 +36,5 @@ namespace TheGreatGrape.Data.Models
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
 
         public virtual ICollection<Vote> Votes { get; set; }
-
-        public string ShoppingCartId { get; set; }
     }
 }
