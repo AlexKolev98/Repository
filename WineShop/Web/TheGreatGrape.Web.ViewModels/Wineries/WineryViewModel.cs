@@ -12,10 +12,10 @@
     {
         public WineryViewModel()
         {
-            this.Wines = new HashSet<WineViewModel>();
+            this.Wines = new HashSet<WinesListViewModel>();
         }
 
-        public IEnumerable<WineViewModel> Wines { get; set; }
+        public IEnumerable<WinesListViewModel> Wines { get; set; }
 
         public string ImageUrl { get; set; }
 

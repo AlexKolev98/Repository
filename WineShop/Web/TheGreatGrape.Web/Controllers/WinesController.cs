@@ -98,9 +98,22 @@
             return this.Redirect("/");
         }
 
+        public IActionResult AllByX(string searchByInput, string searchBy, int itemId, int pageNumberId = 1)
+        {
+            var viewModel = new WinesListViewModel
+            {
+                PageNumber = pageNumberId,
+                ItemsCount = this.winesService.GetCount(),
+                ItemsPerPage = this.itemsPerPage,
+                Wines = this.winesService.GetAllByX(pageNumberId, this.itemsPerPage, searchByInput, searchBy),
+            };
+
+            return this.View(viewModel);
+        }
+
         public IActionResult ById(int id)
         {
-            var viewModel = this.winesService.GetWine<WineViewModel>(id);
+            var viewModel = this.winesService.GetWine(id);
 
             return this.View(viewModel);
         }
@@ -118,150 +131,6 @@
                 ItemsCount = this.winesService.GetCount(),
                 ItemsPerPage = this.itemsPerPage,
                 Wines = this.winesService.GetAll<WinesListViewModel>(id, this.itemsPerPage),
-            };
-
-            return this.View(viewModel);
-        }
-
-        public IActionResult AllByWinery(int wineryId, int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            var viewModel = new WinesListViewModel
-            {
-                PageNumber = id,
-                ItemsCount = this.winesService.GetCount(),
-                ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetAllByWinery(id, this.itemsPerPage, wineryId),
-            };
-
-            return this.View(viewModel);
-        }
-
-        public IActionResult AllByGrape(int grapeId, int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            var viewModel = new WinesListViewModel
-            {
-                PageNumber = id,
-                ItemsCount = this.winesService.GetCount(),
-                ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetAllByGrape(id, this.itemsPerPage, grapeId),
-            };
-
-            return this.View(viewModel);
-        }
-
-        public IActionResult AllBySweetness(string sweetness, int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            var viewModel = new WinesListViewModel
-            {
-                PageNumber = id,
-                ItemsCount = this.winesService.GetCount(),
-                ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetAllBySweetness(id, this.itemsPerPage, sweetness),
-            };
-
-            return this.View(viewModel);
-        }
-
-        public IActionResult AllByColour(int categoryId, int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            var viewModel = new WinesListViewModel
-            {
-                PageNumber = id,
-                ItemsCount = this.winesService.GetCount(),
-                ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetAllByCategory(id, this.itemsPerPage, categoryId),
-            };
-
-            return this.View(viewModel);
-        }
-
-        public IActionResult AllByCountry(int countryId, int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            var viewModel = new WinesListViewModel
-            {
-                PageNumber = id,
-                ItemsCount = this.winesService.GetCount(),
-                ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetAllByCountry(id, this.itemsPerPage, countryId),
-            };
-
-            return this.View(viewModel);
-        }
-
-        public IActionResult AllByYear(int year, int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            var viewModel = new WinesListViewModel
-            {
-                PageNumber = id,
-                ItemsCount = this.winesService.GetCount(),
-                ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetAllByYear(id, this.itemsPerPage, year),
-            };
-
-            return this.View(viewModel);
-        }
-
-        public IActionResult AllByVolume(int volume, int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            var viewModel = new WinesListViewModel
-            {
-                PageNumber = id,
-                ItemsCount = this.winesService.GetCount(),
-                ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetAllByVolume(id, this.itemsPerPage, volume),
-            };
-
-            return this.View(viewModel);
-        }
-
-        public IActionResult AllByAlcohol(decimal alcohol, int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            var viewModel = new WinesListViewModel
-            {
-                PageNumber = id,
-                ItemsCount = this.winesService.GetCount(),
-                ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetAllByAlcohol(id, this.itemsPerPage, alcohol),
             };
 
             return this.View(viewModel);

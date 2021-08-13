@@ -30,7 +30,7 @@ html {
     font-size: 14px;
 }
 
-.checked{
+.checked {
     color: orange
 }
 
@@ -64,6 +64,33 @@ html {
     min-height: 100%;
 }
 
+.card-img-top {
+    height: 240px;
+}
+
+.card-body {
+    height: 220px;
+}
+
+.card-title:hover {
+    background: none;
+    color: #fff;
+    border-color: #FF7F50;
+    color: #FF7F50;
+}
+
+.card-title {
+    line-height: 1;
+    font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color: #3498db;
+    background: none;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+    min-width: 155px;
+}
+
 body {
     /* Margin bottom by footer height */
     margin-bottom: 40px;
@@ -89,6 +116,6 @@ body {
     clear: both;
 }
 
-.right-column{
+.right-column {
     column-count: 2
 }

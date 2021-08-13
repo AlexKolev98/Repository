@@ -62,14 +62,14 @@
             return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
-        //Not implemented yet
         protected override void OnModelCreating(ModelBuilder builder)
         {
-           // builder.Entity<ShoppingCart>()
-           //        .HasOne(x => x.User)
-           //        .WithOne(x => x.ShoppingCart)
-           //        .HasForeignKey<ApplicationUser>(x => x.ShoppingCartId)
-           //        .OnDelete(DeleteBehavior.Restrict);
+            //Not implemented yet
+            // builder.Entity<ShoppingCart>()
+            //        .HasOne(x => x.User)
+            //        .WithOne(x => x.ShoppingCart)
+            //        .HasForeignKey<ApplicationUser>(x => x.ShoppingCartId)
+            //        .OnDelete(DeleteBehavior.Restrict);
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
 
@@ -95,7 +95,6 @@
             {
                 foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
             }
-
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)

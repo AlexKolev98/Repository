@@ -53,13 +53,12 @@ namespace TheGreatGrape.Services.Data
             return this.wineryRepository.AllAsNoTracking().Count();
         }
 
-        public T GetWinery<T>(int id)
+        public WineryViewModel GetWinery(int id)
         {
-            var wineFromDb = this.wineryRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == id);
+            var winery1 = this.wineryRepository.AllAsNoTracking().Where(x => x.Id == id).To<WineryViewModel>();
+            var winery = this.wineryRepository.AllAsNoTracking().Where(x => x.Id == id).To<WineryViewModel>().FirstOrDefault();
 
-            var wine = this.wineryRepository.AllAsNoTracking().Where(x => x.Id == id).To<T>().FirstOrDefault();
-
-            return wine;
+            return winery;
         }
     }
 }

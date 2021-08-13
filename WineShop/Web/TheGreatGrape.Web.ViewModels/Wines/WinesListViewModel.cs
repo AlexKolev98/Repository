@@ -1,7 +1,7 @@
 ﻿namespace TheGreatGrape.Web.ViewModels.Wines
 {
     using System.Collections.Generic;
-
+    using System.Linq;
     using AutoMapper;
     using TheGreatGrape.Data.Models.TheGreatGrape.Models.Enums;
     using TheGreatGrape.Data.Models.WineShop;
@@ -38,7 +38,8 @@
             configuration.CreateMap<Wine, WinesListViewModel>()
                 .ForMember(x => x.ImageUrl, opt => opt.MapFrom(x => x.Image.RemoteImageUrl != null ?
                 x.Image.RemoteImageUrl
-                : "/images/wines/" + x.Image.Id + "." + x.Image.Extension));
+                : "/images/wines/" + x.Image.Id + "." + x.Image.Extension))
+                .ForMember(x => x.GrapeId, opt => opt.MapFrom(x => x.Grapes.FirstOrDefault().GrapeId));
         }
     }
 }

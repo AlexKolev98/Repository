@@ -14,6 +14,6 @@
 
         int GetCount();
 
-        public T GetWinery<T>(int id);
+        public WineryViewModel GetWinery(int id);
     }
 }

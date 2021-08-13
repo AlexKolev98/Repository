@@ -335,16 +335,11 @@ namespace TheGreatGrape.Data.Migrations
                     b.Property<int>("WineId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WineryId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
                     b.HasIndex("WineId");
-
-                    b.HasIndex("WineryId");
 
                     b.ToTable("Votes");
                 });
@@ -678,10 +673,6 @@ namespace TheGreatGrape.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TheGreatGrape.Data.Models.WineShop.Winery", null)
-                        .WithMany("Votes")
-                        .HasForeignKey("WineryId");
-
                     b.Navigation("User");
 
                     b.Navigation("Wine");
@@ -819,8 +810,6 @@ namespace TheGreatGrape.Data.Migrations
 
             modelBuilder.Entity("TheGreatGrape.Data.Models.WineShop.Winery", b =>
                 {
-                    b.Navigation("Votes");
-
                     b.Navigation("WineryImages");
 
                     b.Navigation("Wines");

@@ -12,15 +12,12 @@
         {
             this.Wines = new HashSet<Wine>();
             this.WineryImages = new HashSet<WineryImage>();
-            this.Votes = new HashSet<Vote>();
         }
 
         [Required]
         public string Name { get; set; }
 
         public ICollection<Wine> Wines { get; set; }
-
-        public ICollection<Vote> Votes { get; set; }
 
         [Required]
         public string Description { get; set; }

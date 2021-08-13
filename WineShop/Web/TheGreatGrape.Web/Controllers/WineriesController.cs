@@ -87,7 +87,7 @@
 
         public IActionResult ById(int id)
         {
-            var viewModel = this.wineriesService.GetWinery<WineryViewModel>(id);
+            var viewModel = this.wineriesService.GetWinery(id);
 
             return this.View(viewModel);
         }

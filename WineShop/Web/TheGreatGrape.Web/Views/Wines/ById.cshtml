@@ -39,39 +39,39 @@
                         </tr>
                         <tr>
                             <td><a class="category_linkh"><span>Colour:</span></a></td>
-                            <td><a class="category_link" asp-controller="Wines" asp-action="AllByColour" asp-route-categoryId="@Model.CategoryId">@Model.CategoryName</a></td>
+                            <td><a class="category_link" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@Model.CategoryId" asp-route-searchBy="Category">@Model.CategoryName</a></td>
                         </tr>
                         <tr>
                             <td><a class="category_linkh"><span>Country:</span></a></td>
-                            <td><a class="category_link" asp-controller="Wines" asp-action="AllByCountry" asp-route-countryId="@Model.CountryId">@Model.CountryName</a></td>
+                            <td><a class="category_link" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@Model.CountryId" asp-route-searchBy="Country">@Model.CountryName</a></td>
                         </tr>
                         <tr>
                             <td><p class="category_linkh"><span>Winery:</span></p></td>
-                            <td><a class="category_link" asp-controller="Wineries" asp-action="ById" asp-route-id="@Model.WineryId">@Model.WineryName</a></td>
+                            <td><a class="category_link" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@Model.WineryId" asp-route-searchBy="Winery">@Model.WineryName</a></td>
                         </tr>
                         <tr>
                             <td><a class="category_linkh"><span>Grapevine:</span></a></td>
                             @foreach (var grape in Model.Grapes)
                             {
-                                <td><a class="category_link" asp-controller="Wines" asp-action="AllByGrape" asp-route-id="@grape.GrapeId">@grape.GrapeName</a></td>
+                                <td><a class="category_link" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@grape.GrapeId" asp-route-searchBy="Grape">@grape.GrapeName</a></td>
                             }
                         </tr>
 
                         <tr>
                             <td><a class="category_linkh"><span>Year:</span></a></td>
-                            <td><a class="category_link" asp-controller="Wines" asp-action="AllByYear" asp-route-year="@Model.Year">@Model.Year</a></td>
+                            <td><a class="category_link" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@Model.Year" asp-route-searchBy="Year">@Model.Year</a></td>
                         </tr>
                         <tr>
                             <td><a class="category_linkh"><span>Volume:</span></a></td>
-                            <td><a class="category_link" asp-controller="Wines" asp-action="AllByVolume" asp-route-volume="@Model.Volume">@Model.Volume</a></td>
+                            <td><a class="category_link" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@Model.Volume" asp-route-searchBy="Volume">@Model.Volume</a></td>
                         </tr>
                         <tr>
                             <td><a class="category_linkh"><span>Alcohol %:</span></a></td>
-                            <td><a class="category_link" asp-controller="Wines" asp-action="AllByAlcohol" asp-route-alcohol="@Model.Alcohol">@Model.Alcohol</a></td>
+                            <td><a class="category_link" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@Model.Alcohol" asp-route-searchBy="Alcohol">@Model.Alcohol</a></td>
                         </tr>
                         <tr>
-                            <td><a class="category_linkh"><span>Sweetness</span></a></td>
-                            <td><a class="category_link" asp-controller="Wines" asp-action="AllBySweetness" asp-route-sweetness="@Model.Sweetness">@Model.Sweetness</a></td>
+                            <td><a class="category_linkh"><span>Sweetness:</span></a></td>
+                            <td><a class="category_link" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@Model.Sweetness" asp-route-searchBy="Sweetness">@Model.Sweetness</a></td>
                         </tr>
 
 
