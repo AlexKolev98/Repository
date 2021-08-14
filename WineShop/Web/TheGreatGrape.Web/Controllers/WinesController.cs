@@ -54,7 +54,7 @@
             {
                 PageNumber = id,
                 ItemsCount = this.winesService.GetCount(),
-                Wines = this.winesService.GetAll<WinesListViewModel>(id, itemsPerPage),
+                Wines = this.winesService.GetAllByApproved(id, itemsPerPage),
             };
 
             return this.View(viewModel);
@@ -130,7 +130,25 @@
                 PageNumber = id,
                 ItemsCount = this.winesService.GetCount(),
                 ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetAll<WinesListViewModel>(id, this.itemsPerPage),
+                Wines = this.winesService.GetAllByApproved(id, this.itemsPerPage),
+            };
+
+            return this.View(viewModel);
+        }
+
+        public IActionResult AllByNotApproved(int id = 1)
+        {
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+
+            var viewModel = new WinesListViewModel
+            {
+                PageNumber = id,
+                ItemsCount = this.winesService.GetCount(),
+                ItemsPerPage = this.itemsPerPage,
+                Wines = this.winesService.GetAllByUnapproved(id, this.itemsPerPage),
             };
 
             return this.View(viewModel);

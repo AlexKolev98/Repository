@@ -27,8 +27,7 @@
 
         public IActionResult Index()
         {
-            var returnView = this.categoriesService.GetCategories();
-            return this.View(returnView);
+            return this.View();
         }
 
         public IActionResult Privacy()

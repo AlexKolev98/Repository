@@ -36,29 +36,6 @@ namespace TheGreatGrape.Services.Data
 
         public WineViewModel GetWine(int id)
         {
-            // No Automapper
-            //var wineFromDb = this.winesRepository.AllAsNoTracking().Where(x => x.Id == id).FirstOrDefault();
-          // var generateModel = new WineViewModel
-          // {
-          //     Id = wineFromDb.Id,
-          //     Sweetness = wineFromDb.Sweetness,
-          //     AddedByUserId = wineFromDb.AddedByUserId,
-          //     Alcohol = wineFromDb.Alcohol,
-          //     CategoryId = wineFromDb.CategoryId,
-          //     CountryId = wineFromDb.CountryId,
-          //     Description = wineFromDb.Description,
-          //     ImageUrl = wineFromDb.ImageUrl,
-          //     Name = wineFromDb.Name,
-          //     Price = wineFromDb.Price,
-          //     Volume = wineFromDb.Volume,
-          //     WineryId = wineFromDb.WineryId,
-          //     Year = wineFromDb.Year,
-          //     //Subject to change if wine needs more than 1 image.
-          //     Grapes = (IEnumerable<WineGrapeViewModel>)wineFromDb.Grapes,
-          //     CategoryName = wineFromDb.Category.Name,
-          //     AverageVote = wineFromDb.Votes.Average()
-          // };
-
             var wine = this.winesRepository.AllAsNoTracking().Where(x => x.Id == id).To<WineViewModel>().FirstOrDefault();
 
             return wine;
@@ -117,10 +94,29 @@ namespace TheGreatGrape.Services.Data
                 var wines = this.GetAllBySweetness(page, itemsPerPage, sweetness);
                 return wines;
             }
+            else if (trimmedInput == nameof(Wine.IsApproved))
+            {
+                var wines = this.GetAllByUnapproved(page, itemsPerPage);
+                return wines;
+            }
             else
             {
                 return null;
             }
+        }
+
+        public IEnumerable<WinesListViewModel> GetAllByApproved(int page, int itemsPerPage)
+        {
+            var wines = this.GetAll<WinesListViewModel>(page, itemsPerPage).Where(x => x.IsApproved == true).ToList();
+
+            return wines;
+        }
+
+        public IEnumerable<WinesListViewModel> GetAllByUnapproved(int page, int itemsPerPage)
+        {
+            var wines = this.GetAll<WinesListViewModel>(page, itemsPerPage).Where(x => x.IsApproved != true).ToList();
+
+            return wines;
         }
 
         private IEnumerable<WinesListViewModel> GetAllByWinery(int page, int itemsPerPage, int wineryId)

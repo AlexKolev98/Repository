@@ -3,6 +3,7 @@
     using AutoMapper;
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Text;
     using TheGreatGrape.Data.Models.TheGreatGrape.Models;
@@ -19,18 +20,23 @@
 
         public decimal Price { get; set; }
 
+        [Range(7, 20)]
         public decimal Alcohol { get; set; }
 
+        [Range(250, 50000)]
         public int Volume { get; set; }
 
+        [Range(1960, 2021)]
         public int Year { get; set; }
 
         public int WineryId { get; set; }
 
+        [MinLength(5)]
         public string WineryName { get; set; }
 
         public int CategoryId { get; set; }
 
+        [MinLength(3)]
         public string CategoryName { get; set; }
 
         public IEnumerable<WineGrapeViewModel> Grapes { get; set; }
@@ -39,6 +45,7 @@
 
         public int CountryId { get; set; }
 
+        [MinLength(4)]
         public string CountryName { get; set; }
 
         public SweetnessEnum Sweetness { get; set; }

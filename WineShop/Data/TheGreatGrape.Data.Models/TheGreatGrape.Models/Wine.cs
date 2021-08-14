@@ -55,5 +55,7 @@
         public int CountryId { get; set; }
 
         public SweetnessEnum Sweetness { get; set; }
+
+        public bool IsApproved { get; set; }
     }
 }

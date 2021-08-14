@@ -32,7 +32,7 @@
         [Display(Name = "Volume (ml)")]
         public int Volume { get; set; }
 
-        [Range(1900, 2021)]
+        [Range(1960, 2021)]
         public int Year { get; set; }
 
         [MinLength(20)]

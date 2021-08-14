@@ -13,5 +13,9 @@
         public WineViewModel GetWine(int id);
 
         public IEnumerable<WinesListViewModel> GetAllByX(int page, int itemsPerPage, string searchByInput, string inputX);
+
+        public IEnumerable<WinesListViewModel> GetAllByApproved(int page, int itemsPerPage);
+
+        public IEnumerable<WinesListViewModel> GetAllByUnapproved(int page, int itemsPerPage);
     }
 }
