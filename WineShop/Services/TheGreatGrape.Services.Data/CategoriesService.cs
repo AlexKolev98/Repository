@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TheGreatGrape.Data.Common.Repositories;
-using TheGreatGrape.Data.Models.TheGreatGrape.Models;
-using TheGreatGrape.Web.ViewModels.Home;
-
-namespace TheGreatGrape.Services.Data
+﻿namespace TheGreatGrape.Services.Data
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using TheGreatGrape.Data.Common.Repositories;
+    using TheGreatGrape.Data.Models.TheGreatGrape.Models;
+    using TheGreatGrape.Web.ViewModels.Home;
+
     public class CategoriesService : ICategoriesService
     {
         private readonly IDeletableEntityRepository<Category> categoriesRepository;

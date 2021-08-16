@@ -9,6 +9,7 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
     using TheGreatGrape.Data.Models;
     using TheGreatGrape.Services.Data;
     using TheGreatGrape.Services.Data.Create;
@@ -101,7 +102,20 @@
 
         public IActionResult AllByX(string searchByInput, string searchBy, int itemId, int pageNumberId = 1)
         {
-            WinesListViewModel viewModelFromSearch = (WinesListViewModel)this.TempData["viewModel"];
+            // IF tempData != null, this is being redirected by SearchController.
+            var tempData = this.TempData["viewModel"];
+            if (tempData != null)
+            {
+                WinesListViewModel viewModelFromSearch = JsonConvert.DeserializeObject<WinesListViewModel>(this.TempData["viewModel"].ToString());
+
+                if (viewModelFromSearch == null)
+                {
+                    return this.Redirect("/Wines/" + nameof(this.NothingFound));
+                }
+
+                return this.View(viewModelFromSearch);
+            }
+
             if (searchByInput != null && searchBy != null)
             {
                 var viewModel = new WinesListViewModel
@@ -119,12 +133,7 @@
                 return this.View(viewModel);
             }
 
-            if (viewModelFromSearch == null)
-            {
-                return this.Redirect("/Wines/" + nameof(this.NothingFound));
-            }
-
-            return this.View(viewModelFromSearch);
+            return this.Redirect("/Wines/" + nameof(this.NothingFound));
         }
 
         public IActionResult NothingFound()
