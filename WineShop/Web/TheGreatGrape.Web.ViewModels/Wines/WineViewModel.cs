@@ -1,12 +1,11 @@
 ﻿namespace TheGreatGrape.Web.ViewModels.Wines
 {
-    using AutoMapper;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
-    using System.Text;
-    using TheGreatGrape.Data.Models.TheGreatGrape.Models;
+
+    using AutoMapper;
     using TheGreatGrape.Data.Models.TheGreatGrape.Models.Enums;
     using TheGreatGrape.Data.Models.WineShop;
     using TheGreatGrape.Services.Mapping;
@@ -50,11 +49,12 @@
 
         public SweetnessEnum Sweetness { get; set; }
 
-        public double AverageVote{ get; set; }
+        public double AverageVote { get; set; }
+
+        public bool IsApproved { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
         {
-
             configuration.CreateMap<Wine, WineViewModel>()
                 .ForMember(x => x.Price, opt => opt.MapFrom(x => x.Price));
 

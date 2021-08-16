@@ -1,4 +1,7 @@
-﻿namespace TheGreatGrape.Web.ViewModels
+﻿using System.Collections.Generic;
+using TheGreatGrape.Web.ViewModels.Wines;
+
+namespace TheGreatGrape.Web.ViewModels
 {
 
     public class ItemListViewModel : PagingViewModel

@@ -1,19 +1,16 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using TheGreatGrape.Data.Models;
-using TheGreatGrape.Services.Data;
-using TheGreatGrape.Services.Data.Create;
-using TheGreatGrape.Web.ViewModels.Grapes;
-using TheGreatGrape.Web.ViewModels.Grapes.Create;
-using TheGreatGrape.Web.ViewModels.Wines.Create;
-
-namespace TheGreatGrape.Web.Controllers
+﻿namespace TheGreatGrape.Web.Controllers
 {
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using TheGreatGrape.Data.Models;
+    using TheGreatGrape.Services.Data;
+    using TheGreatGrape.Services.Data.Create;
+    using TheGreatGrape.Web.ViewModels.Grapes;
+    using TheGreatGrape.Web.ViewModels.Grapes.Create;
+
     public class GrapesController : BaseController
     {
         private readonly ICreateGrapeService createGrapeService;
@@ -23,8 +20,7 @@ namespace TheGreatGrape.Web.Controllers
         public GrapesController(
             ICreateGrapeService createGrapeService,
             IGrapesService grapesService,
-            UserManager<ApplicationUser> userManager
-            )
+            UserManager<ApplicationUser> userManager)
         {
             this.createGrapeService = createGrapeService;
             this.grapesService = grapesService;

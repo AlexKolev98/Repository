@@ -32,6 +32,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Wineries" asp-action="All">Wineries</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="Wines">Search</a>
+                        </li>
 
                         @if (this.User.Identity.IsAuthenticated)
                         {
@@ -48,7 +51,13 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Wineries" asp-action="Create">Add Winery</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Wines" asp-action="AllByNotApproved">Approval List</a>
+                                <a class="nav-link text-dark" asp-area="Administration" asp-controller="Wines" asp-action="AllByNotApproved">Approval List</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Administration" asp-controller="Wines" asp-action="Index">Admin Wines</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Administration" asp-controller="Wineries" asp-action="Index">Admin Wineries</a>
                             </li>
 
                         }

@@ -40,7 +40,7 @@
 
         public ApplicationUser AddedByUser { get; set; }
 
-        public string AddedByUserId{ get; set; }
+        public string AddedByUserId { get; set; }
 
         public int CategoryId { get; set; }
 

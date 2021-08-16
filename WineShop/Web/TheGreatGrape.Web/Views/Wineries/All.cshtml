@@ -11,7 +11,7 @@
             <div class="card-body">
                 <h5 class="card-title"><a class="nav-link card-title" asp-area="" asp-controller="Wineries" asp-action="ById" asp-route-id="@winery.Id">@winery.Name</a></h5>
                 <div class="">
-                    <a class="btn btn-primary btn-white" asp-controller="Wines" asp-action="AllByWinery" asp-route-wineryId="@winery.Id">Wines List</a>
+                    <a class="btn btn-primary btn-white" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@winery.Id" asp-route-searchBy="Winery">Wines List</a>
                 </div>
             </div>
         </div>

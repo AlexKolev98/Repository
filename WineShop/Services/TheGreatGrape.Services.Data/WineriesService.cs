@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TheGreatGrape.Data.Common.Repositories;
-using TheGreatGrape.Data.Models.WineShop;
-using TheGreatGrape.Services.Mapping;
-using TheGreatGrape.Web.ViewModels.Wineries;
-
-namespace TheGreatGrape.Services.Data
+﻿namespace TheGreatGrape.Services.Data
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using TheGreatGrape.Data.Common.Repositories;
+    using TheGreatGrape.Data.Models.WineShop;
+    using TheGreatGrape.Services.Mapping;
+    using TheGreatGrape.Web.ViewModels.Wineries;
+
     public class WineriesService : IWineriesService
     {
         private readonly IDeletableEntityRepository<Winery> wineryRepository;
@@ -29,12 +28,12 @@ namespace TheGreatGrape.Services.Data
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage)
         {
-            var wines = this.wineryRepository.AllAsNoTracking()
+            var wineries = this.wineryRepository.AllAsNoTracking()
                 .OrderByDescending(x => x.Id)
                 .Skip((page - 1) * itemsPerPage)
                 .Take(itemsPerPage).To<T>()
                 .ToList();
-            return wines;
+            return wineries;
         }
 
         public IEnumerable<KeyValuePair<string, string>> GetAllAsKeyValuePairs()
@@ -55,7 +54,6 @@ namespace TheGreatGrape.Services.Data
 
         public WineryViewModel GetWinery(int id)
         {
-            var winery1 = this.wineryRepository.AllAsNoTracking().Where(x => x.Id == id).To<WineryViewModel>();
             var winery = this.wineryRepository.AllAsNoTracking().Where(x => x.Id == id).To<WineryViewModel>().FirstOrDefault();
 
             return winery;

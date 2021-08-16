@@ -2,18 +2,9 @@
 {
     using System.Diagnostics;
 
-    using TheGreatGrape.Web.ViewModels;
-
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
-    using TheGreatGrape.Web.ViewModels.Home;
-    using TheGreatGrape.Data;
-    using System.Linq;
-    using TheGreatGrape.Data.Common.Models;
-    using TheGreatGrape.Data.Models.TheGreatGrape.Models;
-    using TheGreatGrape.Data.Common.Repositories;
     using TheGreatGrape.Services.Data;
-    using TheGreatGrape.Services.Data.Create;
+    using TheGreatGrape.Web.ViewModels;
 
     public class HomeController : BaseController
     {

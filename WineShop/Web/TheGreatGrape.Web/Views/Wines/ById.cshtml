@@ -32,11 +32,6 @@
             <div class="tab-cont">
                 <div id="tab-1" class="tab-item active">
                     <table>
-
-                        <tr>
-                            <td><span>Арт. #:</span></td>
-                            <td>@Model.Id</td>
-                        </tr>
                         <tr>
                             <td><a class="category_linkh"><span>Colour:</span></a></td>
                             <td><a class="category_link" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@Model.CategoryId" asp-route-searchBy="Category">@Model.CategoryName</a></td>
@@ -62,7 +57,7 @@
                             <td><a class="category_link" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@Model.Year" asp-route-searchBy="Year">@Model.Year</a></td>
                         </tr>
                         <tr>
-                            <td><a class="category_linkh"><span>Volume:</span></a></td>
+                            <td><a class="category_linkh"><span>Volume (ml):</span></a></td>
                             <td><a class="category_link" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@Model.Volume" asp-route-searchBy="Volume">@Model.Volume</a></td>
                         </tr>
                         <tr>
@@ -89,9 +84,12 @@
                 <div style="margin-bottom: -15px;" class=" ">
                     <span class="normal-price real-price">ЛВ. <span class="display-4">@Model.Price</span></span>
                 </div>
-                <div class="">
-                    <a type="submit" class="btn btn-primary" asp-controller="Cart" asp-action="Index">Add to cart</a>
-                </div>
+                @if (Model.IsApproved == true)
+	            {	 
+                    <div class="">
+                        <a type="submit" class="btn btn-primary" asp-controller="Cart" asp-action="Index">Add to cart</a>
+                    </div>
+	            }
             </div>
 
             <span class="comment-item-rating">

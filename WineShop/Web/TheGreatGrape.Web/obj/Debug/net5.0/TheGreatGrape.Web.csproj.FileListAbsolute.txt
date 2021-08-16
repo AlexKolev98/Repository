@@ -1418,3 +1418,17 @@ D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Ra
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByX.cshtml.g.cs
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\AllByNotApproved.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Wines\AllByNotApproved.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Wineries\Create.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Wineries\Delete.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Wineries\Details.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Wineries\Edit.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Wineries\Index.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Grapes\Create.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Grapes\Delete.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Grapes\Details.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Grapes\Edit.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Grapes\Index.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Search\Index.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Search\Wines.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Wines\NothingFound.cshtml.g.cs

@@ -35,7 +35,7 @@
             this.createGrapeService = createGrapeService;
         }
 
-        public async Task CreateAsync(CreateWineInputModel input, string userId, string imagePath)
+        public async Task CreateAsync(CreateWineInputModel input, string userId, string imagePath, bool isApproved)
         {
             var wine = new Wine
             {
@@ -49,6 +49,7 @@
                 WineryId = input.WineryId,
                 CountryId = input.CountryId,
                 Sweetness = input.Sweetness,
+                IsApproved = isApproved,
             };
 
             var wineGrape = new WineGrape

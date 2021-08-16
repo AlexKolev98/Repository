@@ -1,10 +1,9 @@
 ﻿namespace TheGreatGrape.Web.Areas.Administration.Controllers
 {
-    using TheGreatGrape.Common;
-    using TheGreatGrape.Web.Controllers;
-
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using TheGreatGrape.Common;
+    using TheGreatGrape.Web.Controllers;
 
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     [Area("Administration")]

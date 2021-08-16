@@ -22,6 +22,8 @@
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IWebHostEnvironment environment;
 
+        private readonly int itemsPerPage = 12;
+
         public WineriesController(
             ICreateWineryService createWineryService,
             IWineriesService wineriesService,
@@ -42,13 +44,12 @@
 
         public IActionResult All(int id = 1)
         {
-            const int itemsPerPage = 3;
             var viewModel = new WineriesListViewModel
             {
                 PageNumber = id,
                 ItemsCount = this.wineriesService.GetCount(),
-                ItemsPerPage = itemsPerPage,
-                Wineries = this.wineriesService.GetAll<WineriesListViewModel>(id, itemsPerPage),
+                ItemsPerPage = this.itemsPerPage,
+                Wineries = this.wineriesService.GetAll<WineriesListViewModel>(id, this.itemsPerPage),
             };
 
             return this.View(viewModel);

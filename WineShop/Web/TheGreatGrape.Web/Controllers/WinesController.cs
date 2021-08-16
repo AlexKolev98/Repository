@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
@@ -11,6 +12,7 @@
     using TheGreatGrape.Data.Models;
     using TheGreatGrape.Services.Data;
     using TheGreatGrape.Services.Data.Create;
+    using TheGreatGrape.Web.ViewModels;
     using TheGreatGrape.Web.ViewModels.Wines;
     using TheGreatGrape.Web.ViewModels.Wines.Create;
 
@@ -25,7 +27,8 @@
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IWebHostEnvironment environment;
 
-        private readonly int itemsPerPage = 3;
+        private readonly int itemsPerPage = 12;
+        private readonly string isComingFrom = nameof(WinesController);
 
         public WinesController(
             IWinesService winesService,
@@ -49,15 +52,7 @@
 
         public IActionResult Index(int id = 1)
         {
-            const int itemsPerPage = 3;
-            var viewModel = new WinesListViewModel
-            {
-                PageNumber = id,
-                ItemsCount = this.winesService.GetCount(),
-                Wines = this.winesService.GetAllByApproved(id, itemsPerPage),
-            };
-
-            return this.View(viewModel);
+            return this.Redirect("/Wines/All");
         }
 
         [Authorize]
@@ -75,6 +70,12 @@
         [HttpPost]
         public async Task<IActionResult> Create(CreateWineInputModel input)
         {
+            bool isApproved = false;
+            if (this.User.IsInRole("Administrator"))
+            {
+                isApproved = true;
+            }
+
             if (!this.ModelState.IsValid)
             {
                 input.Categories = this.categoriesService.GetAllAsKeyValuePairs();
@@ -87,7 +88,7 @@
             var user = await this.userManager.GetUserAsync(this.User);
             try
             {
-                await this.createWineService.CreateAsync(input, user.Id, $"{this.environment.WebRootPath}/images");
+                await this.createWineService.CreateAsync(input, user.Id, $"{this.environment.WebRootPath}/images", isApproved);
             }
             catch (Exception ex)
             {
@@ -100,22 +101,55 @@
 
         public IActionResult AllByX(string searchByInput, string searchBy, int itemId, int pageNumberId = 1)
         {
-            var viewModel = new WinesListViewModel
+            WinesListViewModel viewModelFromSearch = (WinesListViewModel)this.TempData["viewModel"];
+            if (searchByInput != null && searchBy != null)
             {
-                PageNumber = pageNumberId,
-                ItemsCount = this.winesService.GetCount(),
-                ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetAllByX(pageNumberId, this.itemsPerPage, searchByInput, searchBy),
-            };
+                var viewModel = new WinesListViewModel
+                {
+                    PageNumber = pageNumberId,
+                    ItemsCount = this.winesService.GetCount(),
+                    ItemsPerPage = this.itemsPerPage,
+                    Wines = this.winesService.GetAllByX(pageNumberId, this.itemsPerPage, searchByInput, searchBy, this.isComingFrom),
+                };
+                if (viewModel.Wines == null)
+                {
+                    this.Redirect("/Wines/" + nameof(this.NothingFound));
+                }
 
-            return this.View(viewModel);
+                return this.View(viewModel);
+            }
+
+            if (viewModelFromSearch == null)
+            {
+                return this.Redirect("/Wines/" + nameof(this.NothingFound));
+            }
+
+            return this.View(viewModelFromSearch);
+        }
+
+        public IActionResult NothingFound()
+        {
+            return this.View();
         }
 
         public IActionResult ById(int id)
         {
-            var viewModel = this.winesService.GetWine(id);
+            try
+            {
+                var viewModel = this.winesService.GetWine<WineViewModel>(id);
 
-            return this.View(viewModel);
+                if (viewModel.IsApproved == false && !this.User.IsInRole("Administrator"))
+                {
+                    return this.NotFound();
+                }
+
+                return this.View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+                return this.Redirect("/Wines");
+            }
         }
 
         public IActionResult All(int id = 1)
@@ -130,25 +164,7 @@
                 PageNumber = id,
                 ItemsCount = this.winesService.GetCount(),
                 ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetAllByApproved(id, this.itemsPerPage),
-            };
-
-            return this.View(viewModel);
-        }
-
-        public IActionResult AllByNotApproved(int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            var viewModel = new WinesListViewModel
-            {
-                PageNumber = id,
-                ItemsCount = this.winesService.GetCount(),
-                ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetAllByUnapproved(id, this.itemsPerPage),
+                Wines = this.winesService.GetApprovedOnly(id, this.itemsPerPage),
             };
 
             return this.View(viewModel);

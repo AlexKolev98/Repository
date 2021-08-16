@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
+
     using AutoMapper;
     using TheGreatGrape.Data.Models.TheGreatGrape.Models.Enums;
     using TheGreatGrape.Data.Models.WineShop;
@@ -10,6 +11,10 @@
 
     public class WinesListViewModel : ItemListViewModel, IMapFrom<Wine>, IHaveCustomMappings
     {
+        public WinesListViewModel()
+        {
+        }
+
         public IEnumerable<WinesListViewModel> Wines { get; set; }
 
         public string ImageUrl { get; set; }

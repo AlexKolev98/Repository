@@ -1,28 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using TheGreatGrape.Data;
-using TheGreatGrape.Data.Common.Repositories;
-using TheGreatGrape.Data.Models.WineShop;
-
-namespace TheGreatGrape.Web.Areas.Administration.Controllers
+﻿namespace TheGreatGrape.Web.Areas.Administration.Controllers
 {
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Rendering;
+    using Microsoft.EntityFrameworkCore;
+    using TheGreatGrape.Data;
+    using TheGreatGrape.Data.Common.Repositories;
+    using TheGreatGrape.Data.Models.WineShop;
+    using TheGreatGrape.Services.Data;
+    using TheGreatGrape.Web.ViewModels.Wines;
+
     [Area("Administration")]
     public class WinesController : AdministrationController
     {
+        private const int ItemsPerPage = 12;
+
         private readonly IDeletableEntityRepository<Wine> winesRepository;
         private readonly ApplicationDbContext db;
+        private readonly IWinesService winesService;
 
         public WinesController(
             IDeletableEntityRepository<Wine> context,
-            ApplicationDbContext db)
+            ApplicationDbContext db,
+            IWinesService winesService)
         {
             this.winesRepository = context;
             this.db = db;
+            this.winesService = winesService;
+        }
+
+        [Authorize]
+        public IActionResult AllByNotApproved(int id = 1)
+        {
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+
+            var viewModel = new WinesListViewModel
+            {
+                PageNumber = id,
+                ItemsCount = this.winesService.GetCount(),
+                ItemsPerPage = ItemsPerPage,
+                Wines = this.winesService.GetAllByNotApproved(id, ItemsPerPage),
+            };
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AllByNotApproved(string value, int id)
+        {
+            await this.winesService.TakeAction(id, value);
+            return this.Redirect("/Administration/Wines/AllByNotApproved");
         }
 
         // GET: Administration/Wines
@@ -77,6 +110,7 @@ namespace TheGreatGrape.Web.Areas.Administration.Controllers
                 await this.winesRepository.SaveChangesAsync();
                 return this.RedirectToAction(nameof(this.Index));
             }
+
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", wine.AddedByUserId);
             this.ViewData["CategoryId"] = new SelectList(this.db.Categories, "Id", "Name", wine.CategoryId);
             this.ViewData["CountryId"] = new SelectList(this.db.Countries, "Id", "Id", wine.CountryId);
@@ -85,7 +119,7 @@ namespace TheGreatGrape.Web.Areas.Administration.Controllers
         }
 
         // GET: Administration/Wines/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -97,6 +131,7 @@ namespace TheGreatGrape.Web.Areas.Administration.Controllers
             {
                 return this.NotFound();
             }
+
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", wine.AddedByUserId);
             this.ViewData["CategoryId"] = new SelectList(this.db.Categories, "Id", "Name", wine.CategoryId);
             this.ViewData["CountryId"] = new SelectList(this.db.Countries, "Id", "Id", wine.CountryId);
@@ -134,8 +169,10 @@ namespace TheGreatGrape.Web.Areas.Administration.Controllers
                         throw;
                     }
                 }
+
                 return this.RedirectToAction(nameof(this.Index));
             }
+
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", wine.AddedByUserId);
             this.ViewData["CategoryId"] = new SelectList(this.db.Categories, "Id", "Name", wine.CategoryId);
             this.ViewData["CountryId"] = new SelectList(this.db.Countries, "Id", "Id", wine.CountryId);

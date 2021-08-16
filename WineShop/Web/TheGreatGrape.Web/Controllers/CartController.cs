@@ -1,18 +1,9 @@
 ﻿namespace TheGreatGrape.Web.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using TheGreatGrape.Common;
     using TheGreatGrape.Data.Models;
-    using TheGreatGrape.Data.Models.WineShop;
     using TheGreatGrape.Services.Data;
-    using TheGreatGrape.Web.ViewModels.Carts;
 
     public class CartController : BaseController
     {
