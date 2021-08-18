@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using TheGreatGrape.Web.ViewModels.Wines;
 
 namespace TheGreatGrape.Web.ViewModels.Search
@@ -22,8 +23,11 @@ namespace TheGreatGrape.Web.ViewModels.Search
 
         public IEnumerable<SearchByItemsViewModel> SearchItems { get; set; }
 
+        [Display(Name = "Search by:")]
         public string SearchBy { get; set; }
 
+        [Display(Name = "Enter text:")]
+        [Required]
         public string SearchByInput { get; set; }
     }
 }

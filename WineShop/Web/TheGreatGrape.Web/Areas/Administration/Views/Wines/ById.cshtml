@@ -221,6 +221,16 @@
 
         </div>
 
+        @if (this.User.IsInRole("Administrator") && Model.IsApproved)
+            {
+                <div>
+                    <a asp-area="Administration" asp-controller="Wines" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-edit">Edit</a>
+                </div>
+                <div>
+                    <a asp-area="Administration" asp-controller="Wines" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-edit">Delete</a>
+                </div>
+            }
+
         <div class="clear-100perc"></div>
 
         <div style="display:flex;padding-bottom:10px;">

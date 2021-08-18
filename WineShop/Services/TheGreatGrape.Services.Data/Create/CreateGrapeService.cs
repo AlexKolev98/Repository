@@ -31,6 +31,11 @@
                 };
             }
 
+            if (this.grapesRepository.All().Any(x => x.Name == grape.Name))
+            {
+                return;
+            }
+
             await this.grapesRepository.AddAsync(grape);
             await this.grapesRepository.SaveChangesAsync();
         }

@@ -71,6 +71,11 @@
             //        .HasForeignKey<ApplicationUser>(x => x.ShoppingCartId)
             //        .OnDelete(DeleteBehavior.Restrict);
             // Needed for Identity models configuration
+
+            builder.Entity<Grape>()
+            .HasIndex(p => new { p.Name })
+            .IsUnique(true);
+
             base.OnModelCreating(builder);
 
             this.ConfigureUserIdentityRelations(builder);

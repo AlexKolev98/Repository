@@ -32,12 +32,24 @@
 
         public int GetCount()
         {
-            return this.winesRepository.AllAsNoTracking().Count();
+            return this.winesRepository.AllAsNoTracking().Where(x => x.IsApproved == true).Count();
         }
 
         public T GetWine<T>(int id)
         {
             var wine = this.winesRepository.AllAsNoTracking().Where(x => x.Id == id).To<T>().FirstOrDefault();
+
+            if (wine == null)
+            {
+                throw new Exception("Looks like you made a pour decision...");
+            }
+
+            return wine;
+        }
+
+        public T GetWineDespiteDeleted<T>(int id)
+        {
+            var wine = this.winesRepository.AllAsNoTrackingWithDeleted().Where(x => x.Id == id).To<T>().FirstOrDefault();
 
             if (wine == null)
             {
@@ -300,10 +312,20 @@
                     foreach (var wine in winesNameAndId)
                     {
                         var nameComponents = wine.Name.Split(" ");
-                        if (nameComponents.Any(x => x == searchByInput) || nameComponents.Any(x => x.ToLower() == searchByInput))
+                        var searchComponents = searchByInput.Split(" ");
+                        foreach (var component in nameComponents)
                         {
-                            var wineToAdd = this.winesRepository.All().Where(x => x.Id == wine.Id && x.IsApproved == true).To<WinesListViewModel>().FirstOrDefault();
-                            wines.Add(wineToAdd);
+                            if (searchComponents.Any(x => x == component))
+                            {
+                                var wineToAdd = this.winesRepository.All().Where(x => x.Id == wine.Id && x.IsApproved == true).To<WinesListViewModel>().FirstOrDefault();
+
+                                if (wines.Contains(wineToAdd))
+                                {
+                                    continue;
+                                }
+
+                                wines.Add(wineToAdd);
+                            }
                         }
                     }
 
@@ -316,6 +338,7 @@
                 }
             }
         }
+
         private IEnumerable<WinesListViewModel> GetAllBySweetness(int page, int itemsPerPage, string sweetness)
         {
             var wines = this.GetApprovedOnly(page, itemsPerPage).Where(x => x.Sweetness.ToString() == sweetness).ToList();

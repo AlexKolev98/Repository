@@ -22,7 +22,7 @@
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IWebHostEnvironment environment;
 
-        private readonly int itemsPerPage = 12;
+        private readonly int itemsPerPage = 1;
 
         public WineriesController(
             ICreateWineryService createWineryService,
@@ -88,9 +88,29 @@
 
         public IActionResult ById(int id)
         {
-            var viewModel = this.wineriesService.GetWinery(id);
+            try
+            {
+                if (this.User.IsInRole("Administrator"))
+                {
+                    var viewModel = this.wineriesService.GetWineryDespiteDeleted(id);
+                    return this.View(viewModel);
+                }
+                else
+                {
+                    var viewModel = this.wineriesService.GetWinery(id);
+                    if (viewModel == null)
+                    {
+                        return this.NotFound();
+                    }
 
-            return this.View(viewModel);
+                    return this.View(viewModel);
+                }
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+                return this.Redirect("/Wineries");
+            }
         }
     }
 }

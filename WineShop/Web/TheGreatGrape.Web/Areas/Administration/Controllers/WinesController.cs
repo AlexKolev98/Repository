@@ -63,9 +63,9 @@
         {
             try
             {
-                var viewModel = this.winesService.GetWine<WineViewModel>(id);
+                var viewModel = this.winesService.GetWineDespiteDeleted<WineViewModel>(id);
 
-                if (viewModel.IsApproved == false && !this.User.IsInRole("Administrator"))
+                if ((viewModel.IsApproved == false && !this.User.IsInRole("Administrator")) || viewModel == null)
                 {
                     return this.NotFound();
                 }
@@ -82,7 +82,7 @@
         // GET: Administration/Wines
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = this.winesRepository.All().Include(w => w.AddedByUser).Include(w => w.Category).Include(w => w.Country).Include(w => w.Winery);
+            var applicationDbContext = this.winesRepository.AllAsNoTrackingWithDeleted().Include(w => w.AddedByUser).Include(w => w.Category).Include(w => w.Country).Include(w => w.Winery);
             return this.View(await applicationDbContext.ToListAsync());
         }
 

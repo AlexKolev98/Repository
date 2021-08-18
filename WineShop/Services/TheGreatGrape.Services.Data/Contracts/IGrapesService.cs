@@ -13,5 +13,7 @@
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage);
 
         int GetCount();
+
+        public int GetWinesCount(int id);
     }
 }

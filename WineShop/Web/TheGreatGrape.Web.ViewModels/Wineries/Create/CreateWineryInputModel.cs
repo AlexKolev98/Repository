@@ -15,6 +15,7 @@
         [MinLength(30)]
         public string Description { get; set; }
 
+        [Required]
         public IEnumerable<IFormFile> Images { get; set; }
     }
 }

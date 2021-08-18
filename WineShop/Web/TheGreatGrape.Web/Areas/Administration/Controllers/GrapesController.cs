@@ -24,7 +24,7 @@
         // GET: Administration/Grapes
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = this.grapesRepository.All().Include(g => g.AddedByUser);
+            var applicationDbContext = this.grapesRepository.AllAsNoTrackingWithDeleted().Include(g => g.AddedByUser);
             return this.View(await applicationDbContext.ToListAsync());
         }
 

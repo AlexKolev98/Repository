@@ -13,6 +13,8 @@
 
         public T GetWine<T>(int id);
 
+        public T GetWineDespiteDeleted<T>(int id);
+
         public IEnumerable<WinesListViewModel> GetAllByX(int page, int itemsPerPage, string searchByInput, string inputX, string isComingFrom);
 
         public IEnumerable<WinesListViewModel> GetApprovedOnly(int page, int itemsPerPage);

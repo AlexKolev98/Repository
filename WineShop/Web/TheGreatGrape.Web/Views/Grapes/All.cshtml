@@ -1,5 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model TheGreatGrape.Web.ViewModels.Grapes.GrapesListViewModel
+<div class="row text-center">
+    @foreach (var item in Model.Grapes)
+    {
+
+<a class="column" asp-controller="Wines" asp-action="AllByX" asp-route-searchByInput="@item.Id" asp-route-searchBy="Grape">@item.Name (@item.WinesCount)</a>}
+</div>
+<partial name="_PagingPartial" model="@Model" />

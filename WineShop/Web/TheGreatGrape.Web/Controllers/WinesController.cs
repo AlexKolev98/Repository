@@ -154,14 +154,22 @@
         {
             try
             {
-                var viewModel = this.winesService.GetWine<WineViewModel>(id);
-
-                if (viewModel.IsApproved == false && !this.User.IsInRole("Administrator"))
+                if (this.User.IsInRole("Administrator"))
                 {
-                    return this.NotFound();
+                    var viewModel = this.winesService.GetWineDespiteDeleted<WineViewModel>(id);
+                    return this.View(viewModel);
                 }
+                else
+                {
+                    var viewModel = this.winesService.GetWine<WineViewModel>(id);
 
-                return this.View(viewModel);
+                    if (viewModel.IsApproved == false && !this.User.IsInRole("Administrator"))
+                    {
+                        return this.NotFound();
+                    }
+
+                    return this.View(viewModel);
+                }
             }
             catch (Exception ex)
             {

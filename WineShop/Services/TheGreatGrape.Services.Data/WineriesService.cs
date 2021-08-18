@@ -1,5 +1,6 @@
 ﻿namespace TheGreatGrape.Services.Data
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -55,6 +56,23 @@
         public WineryViewModel GetWinery(int id)
         {
             var winery = this.wineryRepository.AllAsNoTracking().Where(x => x.Id == id).To<WineryViewModel>().FirstOrDefault();
+
+            if (winery == null)
+            {
+                throw new Exception("Looks like you made a pour decision...");
+            }
+
+            return winery;
+        }
+
+        public WineryViewModel GetWineryDespiteDeleted(int id)
+        {
+            var winery = this.wineryRepository.AllAsNoTrackingWithDeleted().Where(x => x.Id == id).To<WineryViewModel>().FirstOrDefault();
+
+            if (winery == null)
+            {
+                throw new Exception("Looks like you made a pour decision...");
+            }
 
             return winery;
         }

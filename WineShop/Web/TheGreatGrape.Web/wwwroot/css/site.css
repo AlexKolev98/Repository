@@ -12,6 +12,16 @@ a {
     color: #0366d6;
 }
 
+.btn-edit {
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+    min-width: 155px;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
@@ -24,13 +34,108 @@ a {
     border-color: #1861ac;
 }
 
+.accordion-home .title-red span {
+    padding: 0px 24px;
+    display: block;
+}
+
+.accordion-home {
+    border-radius: 25px;
+    list-style: none;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.accordion-home .title-red {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+    padding: 24px 0px;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+    border-bottom: 2px solid #dadada;
+}
+
+    .accordion-home .title-red:hover {
+        background-color: #990000;
+        color: #fff;
+    }
+
+    .accordion-home .title-white span {
+        padding: 0px 24px;
+        display: block;
+    }
+
+.accordion-home .title-white {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+    padding: 24px 0px;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+    border-bottom: 2px solid #dadada;
+}
+
+    .accordion-home .title-white:hover {
+        background-color: #f0e68c;
+        color: #990000;
+    }
+
+.accordion-home .title-rose span {
+    padding: 0px 24px;
+    display: block;
+}
+
+.accordion-home .title-rose {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+    padding: 24px 0px;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+    border-bottom: 2px solid #dadada;
+}
+
+    .accordion-home .title-rose:hover {
+        background-color: #ffccd4;
+        color: #1861ac;
+    }
+
+.accordion-home .title-main span {
+    padding: 0px 24px;
+    display: block;
+}
+
+.accordion-home .title-main {
+    font-weight: 600;
+    font-size: 36px;
+    color: #333333;
+    padding: 24px 0px;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+    .accordion-home .title-main:hover {
+        background-color: none;
+        color: #FF7F50;
+    }
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
     font-size: 14px;
 }
 
-.card-img-top-home-red{
+.card-img-top-home-red {
     background-image: url(../images/home/red-wine-blends-FT-MAG1116-2000.jpg);
 }
 
@@ -101,7 +206,7 @@ html {
     margin-bottom: 300px;
 }
 
-.footer-homepage{
+.footer-homepage {
     color: black;
 }
 
@@ -109,6 +214,7 @@ body {
     /* Margin bottom by footer height */
     background-color: aliceblue;
 }
+
 header {
     background-color: #87CEEB;
 }

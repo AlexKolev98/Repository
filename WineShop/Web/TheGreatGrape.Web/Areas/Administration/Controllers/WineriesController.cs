@@ -1,5 +1,6 @@
 ﻿namespace TheGreatGrape.Web.Areas.Administration.Controllers
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -9,23 +10,26 @@
     using TheGreatGrape.Data;
     using TheGreatGrape.Data.Common.Repositories;
     using TheGreatGrape.Data.Models.WineShop;
+    using TheGreatGrape.Services.Data;
 
     [Area("Administration")]
     public class WineriesController : Controller
     {
         private readonly IDeletableEntityRepository<Winery> wineryRepository;
         private readonly ApplicationDbContext db;
+        private readonly IWineriesService wineriesService;
 
-        public WineriesController(IDeletableEntityRepository<Winery> wineryRepository, ApplicationDbContext db)
+        public WineriesController(IDeletableEntityRepository<Winery> wineryRepository, ApplicationDbContext db, IWineriesService wineriesService)
         {
             this.wineryRepository = wineryRepository;
             this.db = db;
+            this.wineriesService = wineriesService;
         }
 
         // GET: Administration/Wineries
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = this.wineryRepository.All().Include(w => w.AddedByUser);
+            var applicationDbContext = this.wineryRepository.AllAsNoTrackingWithDeleted().Include(w => w.AddedByUser);
             return this.View(await applicationDbContext.ToListAsync());
         }
 
@@ -71,6 +75,38 @@
 
             this.ViewData["AddedByUserId"] = new SelectList(this.db.Users, "Id", "Id", winery.AddedByUserId);
             return this.View(winery);
+        }
+
+        public IActionResult ById(int id)
+        {
+            try
+            {
+                if (this.User.IsInRole("Administrator"))
+                {
+                    var viewModel = this.wineriesService.GetWineryDespiteDeleted(id);
+                    if (viewModel == null)
+                    {
+                        return this.NotFound();
+                    }
+
+                    return this.View(viewModel);
+                }
+                else
+                {
+                    var viewModel = this.wineriesService.GetWinery(id);
+                    if (viewModel == null)
+                    {
+                        return this.NotFound();
+                    }
+
+                    return this.View(viewModel);
+                }
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+                return this.Redirect("/Wineries");
+            }
         }
 
         // GET: Administration/Wineries/Edit/5

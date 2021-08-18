@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TheGreatGrape.Data.Common.Repositories;
+using TheGreatGrape.Data.Models.WineShop;
 using TheGreatGrape.Services.Mapping;
 using TheGreatGrape.Web.ViewModels.Grapes;
 
@@ -11,10 +12,14 @@ namespace TheGreatGrape.Services.Data
     public class GrapesService : IGrapesService
     {
         private readonly IDeletableEntityRepository<Grape> grapesRepository;
+        private readonly IWinesService winesService;
+        private readonly IDeletableEntityRepository<Wine> winesRepository;
 
-        public GrapesService(IDeletableEntityRepository<Grape> grapesRepository)
+        public GrapesService(IDeletableEntityRepository<Grape> grapesRepository, IWinesService winesService, IDeletableEntityRepository<Wine> winesRepository)
         {
             this.grapesRepository = grapesRepository;
+            this.winesService = winesService;
+            this.winesRepository = winesRepository;
         }
 
         public GetGrapesViewModel GetAll()
@@ -51,6 +56,12 @@ namespace TheGreatGrape.Services.Data
         public int GetCount()
         {
             return this.grapesRepository.AllAsNoTracking().Count();
+        }
+
+        public int GetWinesCount(int id)
+        {
+            var winesCount = this.winesRepository.AllAsNoTracking().Where(x => x.Grapes.FirstOrDefault().GrapeId == id && x.IsApproved).Count();
+            return winesCount;
         }
     }
 }

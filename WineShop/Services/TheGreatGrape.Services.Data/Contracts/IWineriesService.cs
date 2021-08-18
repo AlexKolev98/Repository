@@ -15,5 +15,7 @@
         int GetCount();
 
         public WineryViewModel GetWinery(int id);
+
+        public WineryViewModel GetWineryDespiteDeleted(int id);
     }
 }
