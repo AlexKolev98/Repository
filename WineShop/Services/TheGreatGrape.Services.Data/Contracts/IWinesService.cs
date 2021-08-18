@@ -19,6 +19,6 @@
 
         public IEnumerable<WinesListViewModel> GetAllByNotApproved(int page, int itemsPerPage);
 
-        Task TakeAction(int id, string value);
+        Task ApproveOrRemove(int id, string value);
     }
 }

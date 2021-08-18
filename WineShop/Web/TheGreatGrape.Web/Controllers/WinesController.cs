@@ -103,20 +103,28 @@
         public IActionResult AllByX(string searchByInput, string searchBy, int itemId, int pageNumberId = 1)
         {
             // IF tempData != null, this is being redirected by SearchController.
-            var tempData = this.TempData["viewModel"];
+            var tempData = this.TempData["isComingFrom"];
+
             if (tempData != null)
             {
-                WinesListViewModel viewModelFromSearch = JsonConvert.DeserializeObject<WinesListViewModel>(this.TempData["viewModel"].ToString());
+                searchByInput = JsonConvert.DeserializeObject<string>(this.TempData["searchByInput"].ToString());
+                searchBy = JsonConvert.DeserializeObject<string>(this.TempData["searchBy"].ToString());
+                var comingFrom = JsonConvert.DeserializeObject<string>(this.TempData["isComingFrom"].ToString());
 
-                if (viewModelFromSearch == null)
+                if (searchBy != null && searchByInput != null && comingFrom != null)
                 {
-                    return this.Redirect("/Wines/" + nameof(this.NothingFound));
+                    var viewModel = new WinesListViewModel
+                    {
+                        PageNumber = pageNumberId,
+                        ItemsPerPage = this.itemsPerPage,
+                        ItemsCount = this.winesService.GetCount(),
+                        Wines = this.winesService.GetAllByX(pageNumberId, this.itemsPerPage, searchByInput, searchBy, comingFrom),
+                    };
+                    return this.View(viewModel);
                 }
-
-                return this.View(viewModelFromSearch);
+                return this.Redirect("/Wines/" + nameof(this.NothingFound));
             }
-
-            if (searchByInput != null && searchBy != null)
+            else if (searchByInput != null && searchBy != null)
             {
                 var viewModel = new WinesListViewModel
                 {
@@ -125,11 +133,12 @@
                     ItemsPerPage = this.itemsPerPage,
                     Wines = this.winesService.GetAllByX(pageNumberId, this.itemsPerPage, searchByInput, searchBy, this.isComingFrom),
                 };
-                if (viewModel.Wines == null)
+                if (viewModel.Wines == null || viewModel == null)
                 {
                     this.Redirect("/Wines/" + nameof(this.NothingFound));
                 }
 
+                this.TempData["postViewModel"] = JsonConvert.SerializeObject(viewModel);
                 return this.View(viewModel);
             }
 

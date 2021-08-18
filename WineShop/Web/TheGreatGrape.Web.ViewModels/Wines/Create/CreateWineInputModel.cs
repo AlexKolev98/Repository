@@ -26,6 +26,7 @@
         public decimal Price { get; set; }
 
         [Display(Name = "Alcohol (%)")]
+        [Range(7, 24)]
         public decimal Alcohol { get; set; }
 
         [Range(250, 50000)]
@@ -38,6 +39,7 @@
         [MinLength(20)]
         public string Description { get; set; }
 
+        [Required]
         public IFormFile Image { get; set; }
 
         public SweetnessEnum Sweetness{ get; set; }

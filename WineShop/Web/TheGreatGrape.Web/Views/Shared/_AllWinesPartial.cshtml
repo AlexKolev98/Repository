@@ -3,15 +3,15 @@
 
 @if (Model.Wines == null)
 {
-    <div class="display-4 text-center">
-        <p>Nothing found!</p>
-    </div>
-}
+<div class="display-4 text-center">
+    <span>Looks like you made a pour decision...</span>
+</div> }
 else
 {
-<div class="row">
-    @foreach (var item in Model.Wines)
-    {
+<body>
+    <div class="row">
+        @foreach (var item in Model.Wines)
+        {
 <div class="card text-center" style="width: 13rem;">
     <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap">
     <div class="card-body">
@@ -22,5 +22,7 @@ else
         </div>
     </div>
 </div>}
-</div>
+    </div>
+</body>
+                <partial name="_PagingPartial" model="@Model" />
 }

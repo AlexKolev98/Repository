@@ -47,7 +47,7 @@
             return wine;
         }
 
-        public async Task TakeAction(int id, string value)
+        public async Task ApproveOrRemove(int id, string value)
         {
             if (value == "true")
             {

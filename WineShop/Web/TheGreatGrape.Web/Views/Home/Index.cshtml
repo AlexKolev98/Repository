@@ -1,10 +1,16 @@
 ﻿@using TheGreatGrape.Common
 @model TheGreatGrape.Web.ViewModels.Home.GetAllCategoriesViewModel
-@{
-    this.ViewData["Title"] = "Home Page";
-}
+@{ this.ViewData["Title"] = "Home Page"; }
 
 
-<div class="text-center">
-    <h1 class="display-4">The Great Grape</h1>
-</div>
+<body class="body-home">
+    <div class="text-center">
+        <h1 class="display-2 font-weight-light">Welcome to The Great Grape</h1>
+    </div>
+    <div class="text-center">
+        <h2 class="display-4">Pick your poison</h2>
+        <h2 class="card-title"><a class="nav-link card-title" asp-controller="WInes" asp-action="AllByX" asp-route-searchByInput="2" asp-route-searchBy="Category">RED</a></h2>
+        <h2 class="card-title"><a class="nav-link card-title" asp-controller="WInes" asp-action="AllByX"  asp-route-searchByInput="1" asp-route-searchBy="Category">WHITE</a></h2>
+        <h2 class="card-title"><a class="nav-link card-title" asp-controller="WInes" asp-action="AllByX"  asp-route-searchByInput="3" asp-route-searchBy="Category">ROSÉ</a></h2>
+    </div>
+</body>

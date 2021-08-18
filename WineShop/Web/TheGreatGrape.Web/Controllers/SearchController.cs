@@ -49,15 +49,9 @@
                 return this.View(input);
             }
 
-            var viewModel = new WinesListViewModel
-            {
-                PageNumber = page,
-                ItemsPerPage = this.ItemsPerPage,
-                ItemsCount = this.winesService.GetCount(),
-                Wines = this.winesService.GetAllByX(page, this.ItemsPerPage, input.SearchByInput, input.SearchBy, this.isComingFrom),
-            };
-
-            this.TempData["viewModel"] = JsonConvert.SerializeObject(viewModel);
+            this.TempData["searchByInput"] = JsonConvert.SerializeObject(input.SearchByInput);
+            this.TempData["searchBy"] = JsonConvert.SerializeObject(input.SearchBy);
+            this.TempData["isComingFrom"] = JsonConvert.SerializeObject(this.isComingFrom);
 
             return this.RedirectToAction("AllByX", "Wines");
         }

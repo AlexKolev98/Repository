@@ -1,5 +1,6 @@
 ﻿namespace TheGreatGrape.Web.Areas.Administration.Controllers
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -54,8 +55,28 @@
         [HttpPost]
         public async Task<IActionResult> AllByNotApproved(string value, int id)
         {
-            await this.winesService.TakeAction(id, value);
+            await this.winesService.ApproveOrRemove(id, value);
             return this.Redirect("/Administration/Wines/AllByNotApproved");
+        }
+
+        public IActionResult ById(int id)
+        {
+            try
+            {
+                var viewModel = this.winesService.GetWine<WineViewModel>(id);
+
+                if (viewModel.IsApproved == false && !this.User.IsInRole("Administrator"))
+                {
+                    return this.NotFound();
+                }
+
+                return this.View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+                return this.Redirect("/Wines");
+            }
         }
 
         // GET: Administration/Wines

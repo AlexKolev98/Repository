@@ -11,7 +11,6 @@
                     <h5 class="card-title"><a class="nav-link card-title" asp-area="" asp-controller="Wines" asp-action="ById" asp-route-id="@item.Id">@item.Name</a></h5>
                     <p class="card-text">$@item.Price</p>
                     <div class="card-link">
-
                          <input asp-controller="Wines" asp-action="AllByNotApproved" type="submit" class="btn btn-primary" asp-route-id="@item.Id" asp-route-value="true" value="Approve"/>
                          <input asp-controller="Wines" asp-action="AllByNotApproved" type="submit" class="btn btn-primary" asp-route-id="@item.Id" asp-route-value="false" value="Remove"/>
                     </div>
