@@ -100,7 +100,7 @@
             return this.Redirect("/");
         }
 
-        public IActionResult AllByX(string searchByInput, string searchBy, int itemId, int pageNumberId = 1)
+        public IActionResult AllByX(string searchByInput, string searchBy, int pageNumberId = 1)
         {
             // IF tempData != null, this is being redirected by SearchController.
             var tempData = this.TempData["isComingFrom"];
@@ -119,9 +119,12 @@
                         ItemsPerPage = this.itemsPerPage,
                         ItemsCount = this.winesService.GetCount(),
                         Wines = this.winesService.GetAllByX(pageNumberId, this.itemsPerPage, searchByInput, searchBy, comingFrom),
+                        SearchBy = searchBy,
+                        SearchByInput = searchByInput,
                     };
                     return this.View(viewModel);
                 }
+
                 return this.Redirect("/Wines/" + nameof(this.NothingFound));
             }
             else if (searchByInput != null && searchBy != null)
@@ -132,6 +135,8 @@
                     ItemsCount = this.winesService.GetCount(),
                     ItemsPerPage = this.itemsPerPage,
                     Wines = this.winesService.GetAllByX(pageNumberId, this.itemsPerPage, searchByInput, searchBy, this.isComingFrom),
+                    SearchBy = searchBy,
+                    SearchByInput = searchByInput,
                 };
                 if (viewModel.Wines == null || viewModel == null)
                 {

@@ -1,0 +1,32 @@
+﻿@model PagingViewModel
+<nav aria-label="...">
+    <ul class="pagination justify-content-center">
+        <li class="page-item @if (!Model.HasPreviousPage) {<text>disabled</text> } ">
+            <a class="page-link" asp-action="AllByX" asp-route-searchBy="@Model.SearchBy" asp-route-searchByInput="@Model.SearchByInput" asp-route-pageNumberId="@Model.PreviousPageNumber">Previous</a>
+        </li>
+        <li class="page-item @if (!Model.HasPreviousPage) {<text>disabled</text> }">
+            <a class="page-link" asp-action="AllByX" asp-route-searchBy="@Model.SearchBy" asp-route-searchByInput="@Model.SearchByInput" asp-route-pageNumberId="@Model.PreviousPageNumber">
+                @if (Model.PageNumber == 1)
+                {<text> - </text>}
+            else
+            {@Model.PreviousPageNumber}
+            </a>
+        </li>
+        <li class="page-item" aria-current="page">
+            <a class="page-link">
+                @Model.PageNumber
+            </a>
+        </li>
+        <li class="page-item @if (!Model.HasNextPage) {<text>disabled</text> }">
+            <a class="page-link" asp-action="AllByX" asp-route-searchBy="@Model.SearchBy" asp-route-searchByInput="@Model.SearchByInput" asp-route-pageNumberId="@Model.NextPageNumber">
+                @if (Model.PageNumber == Model.PagesCount)
+                {<text> - </text>}
+            else
+            {@Model.NextPageNumber}
+            </a>
+        </li>
+        <li class="page-item @if (!Model.HasNextPage) {<text>disabled</text> }">
+            <a class="page-link" asp-action="AllByX" asp-route-searchBy="@Model.SearchBy" asp-route-searchByInput="@Model.SearchByInput" asp-route-pageNumberId="@Model.NextPageNumber">Next</a>
+        </li>
+    </ul>
+</nav>

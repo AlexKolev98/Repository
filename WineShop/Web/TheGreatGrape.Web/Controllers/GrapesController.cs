@@ -41,7 +41,7 @@
 
         public IActionResult All(int id = 1)
         {
-            int itemsPerPage = 12;
+            int itemsPerPage = 32;
             var grapes = this.grapesService.GetAll<GrapesListViewModel>(id, itemsPerPage);
             foreach (var item in grapes)
             {

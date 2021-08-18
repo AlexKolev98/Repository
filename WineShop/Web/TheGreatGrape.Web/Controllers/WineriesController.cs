@@ -22,7 +22,7 @@
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IWebHostEnvironment environment;
 
-        private readonly int itemsPerPage = 1;
+        private readonly int itemsPerPage = 12;
 
         public WineriesController(
             ICreateWineryService createWineryService,

@@ -21,5 +21,9 @@
         public int PagesCount => (int)Math.Ceiling((double)this.ItemsCount / this.ItemsPerPage);
 
         public int ItemsCount { get; set; }
+
+        public string SearchBy { get; set; }
+
+        public string SearchByInput { get; set; }
     }
 }
