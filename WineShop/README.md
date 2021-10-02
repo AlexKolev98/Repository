@@ -1,3 +1,3 @@
 wine-shop
 
-My first ASP Net project.
+My first ASP.NET project.
