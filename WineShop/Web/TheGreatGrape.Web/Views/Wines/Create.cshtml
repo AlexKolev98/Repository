@@ -1,0 +1,83 @@
+﻿@using TheGreatGrape.Common
+
+@model TheGreatGrape.Web.ViewModels.Wines.Create.CreateWineInputModel
+@{
+    this.ViewData["Title"] = "Add new wine";
+    var categoryItems = this.Model.Categories.Select(x => new SelectListItem(x.Value, x.Key));
+    var wineryItems = this.Model.Wineries.Select(x => new SelectListItem(x.Value, x.Key));
+    var grapeItems = this.Model.Grapes.Select(x => new SelectListItem(x.Value, x.Key));
+    var countryItems = this.Model.Countries.Select(x => new SelectListItem(x.Value, x.Key));
+    var sweetnessItems = new SelectList(Enum.GetValues(typeof(TheGreatGrape.Data.Models.TheGreatGrape.Models.Enums.SweetnessEnum)));
+
+}
+
+
+<form method="post" enctype="multipart/form-data">
+    <h1>@this.ViewData["Title"]</h1>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="right-column">
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Year"></label>
+            <input asp-for="Year" class="form-control">
+            <span asp-validation-for="Year" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" class="form-control">
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Volume"></label>
+            <input asp-for="Volume" class="form-control">
+            <span asp-validation-for="Volume" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Alcohol"></label>
+            <input asp-for="Alcohol" class="form-control">
+            <span asp-validation-for="Alcohol" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryId"></label>
+            <select asp-for="CategoryId" class="form-control" asp-items="categoryItems"></select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="GrapeId"></label>
+            <select asp-for="GrapeId" class="form-control" asp-items="grapeItems"></select>
+            <span asp-validation-for="GrapeId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="WineryId"></label>
+            <select asp-for="WineryId" class="form-control" asp-items="wineryItems"></select>
+            <span asp-validation-for="WineryId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CountryId"></label>
+            <select asp-for="CountryId" class="form-control" asp-items="countryItems"></select>
+            <span asp-validation-for="CountryId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Sweetness"></label>
+            <select asp-for="Sweetness" class="form-control" asp-items="sweetnessItems"></select>
+            <span asp-validation-for="Sweetness" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Image"></label>
+            <input asp-for="Image" class="form-control">
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary offset-4" />
+        </div>
+    </div>
+</form>

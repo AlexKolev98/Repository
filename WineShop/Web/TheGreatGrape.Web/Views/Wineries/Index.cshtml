@@ -1,0 +1,30 @@
+﻿@using TheGreatGrape.Common
+
+@model TheGreatGrape.Web.ViewModels.Wineries.GetWineriesViewModel
+@{
+    this.ViewData["Title"] = "All Wineries";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Wineries</h1>
+    <p>
+        <style>
+            ul#menu li {
+                display: inline
+            }
+        </style>
+        <ul id="menu">
+            @foreach (var item in Model.Wineries)
+            {
+                <li>@item.Name</li>
+            }
+        </ul>
+    </p>
+</div>
+@if (this.User.Identity.IsAuthenticated)
+{
+    <div class="text-center">
+        <a class="btn btn-success" asp-controller="Wineries" asp-action="Create">Add</a>
+    </div>
+
+}

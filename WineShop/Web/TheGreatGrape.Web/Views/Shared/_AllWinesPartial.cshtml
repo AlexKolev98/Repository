@@ -1,0 +1,29 @@
+﻿@using TheGreatGrape.Common
+@model TheGreatGrape.Web.ViewModels.Wines.WinesListViewModel
+
+@if (Model.Wines == null)
+{
+<div class="display-4 text-center">
+    <span>Looks like you made a pour decision...</span>
+</div> }
+else
+{
+<body>
+    <div class="row">
+        @foreach (var item in Model.Wines)
+        {
+<div class="card text-center" style="width: 13rem;">
+    <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title"><a class="nav-link card-title" asp-area="" asp-controller="Wines" asp-action="ById" asp-route-id="@item.Id">@item.Name</a></h5>
+        <p class="card-text">лв. @item.Price</p>
+        <div class="card-link">
+            <a type="submit" class="btn btn-primary" asp-controller="Cart" asp-action="Index">Add to cart</a>
+        </div>
+    </div>
+</div>}
+    </div>
+</body>
+
+  <partial name="_PagingPartial" model="@Model" />
+}

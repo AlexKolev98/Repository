@@ -1,0 +1,63 @@
+﻿@model TheGreatGrape.Web.ViewModels.Wineries.WineryViewModel
+
+@if (Model == null)
+{
+    <div class="display-4 text-center">
+    <span>Looks like you made a pour decision...</span>
+    </div> }
+else
+{     
+<div class="row">
+
+    <div class="right-column-body full-width">
+
+        <div class="inner-left-column">
+
+            <div class="display-4">@Model.Name</div>
+            @if (this.User.IsInRole("Administrator"))
+            {
+                <div>
+                    <a asp-area="Administration" asp-controller="Wineries" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-edit">Edit</a>
+                </div>
+                <div>
+                    <a asp-area="Administration" asp-controller="Wineries" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-edit">Delete</a>
+                </div>
+            }
+            <div class="product-view-item">
+                <div class="tab-cont">
+                    <div id="tab-2" class="tab-item">
+                        <div>
+                            @foreach (var item in Model.WineryImages)
+                            {
+                <img src="@item.ImageUrl" alt="Alternate Text" />}
+                            <p class="font-heading"> Information:</p>
+                            <p class="font-body">@Model.Description</p>
+                        </div>
+                    </div>
+                </div>
+                <p>Wines:</p>
+                <div class="inner-left-column row">
+                    @foreach (var item in Model.Wines)
+                    {
+                        if (item.IsApproved)
+                        {
+                            <div class="card text-center" style="width: 13rem;">
+                                <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><a class="nav-link card-title" asp-area="" asp-controller="Wines" asp-action="ById" asp-route-id="@item.Id">@item.Name</a></h5>
+                                    <p class="card-text">$@item.Price</p>
+                                    <div class="card-link">
+                                        <a type="submit" class="btn btn-primary" asp-controller="Cart" asp-action="Index">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                                            }
+                                        }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+

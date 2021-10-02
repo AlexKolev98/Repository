@@ -1,0 +1,24 @@
+﻿@model TheGreatGrape.Web.ViewModels.Search.SearchInputModel
+
+@{
+    ViewData["Title"] = "Search";
+    var searchByItems = new SelectList(Model.SearchItems, "Value", "Text");
+}
+
+<form method="post">
+    <div class="row">
+        <div class="form-group">
+            <label asp-for="SearchBy"></label>
+            <select asp-for="SearchBy" class="form-control" asp-items="searchByItems"></select>
+            <span asp-validation-for="SearchBy" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="SearchByInput"></label>
+            <input asp-for="SearchByInput" class="form-control" />
+            <span asp-validation-for="SearchByInput" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group col-md-2">
+        <input type="submit" class="btn btn-primary offset-4" value="Search" />
+    </div>
+</form>
