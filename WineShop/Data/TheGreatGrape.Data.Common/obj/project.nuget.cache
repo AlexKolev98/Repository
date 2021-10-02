@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "x457JL7ZA5EHojcVmkDj1i3UVeM4OR/jMLO8b8Kh2TIgZRWUOqW7bWa5s//oigTkla428GwO093hemRoDq/5uw==",
+  "success": true,
+  "projectFilePath": "D:\\LocalRepository\\WineShop\\Data\\TheGreatGrape.Data.Common\\TheGreatGrape.Data.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Gamer\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
+    "C:\\Users\\Gamer\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512",
+    "C:\\Users\\Gamer\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

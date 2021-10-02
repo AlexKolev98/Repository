@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "JIcMI0XPcy6Pt//F+Xo2ed+OL9mq6C4hUk0gej/8cPy5YGQ7BBTrONibKsQthWPmbEYfiKk32tp7DvGNyOWS0w==",
+  "success": true,
+  "projectFilePath": "D:\\LocalRepository\\WineShop\\Web\\TheGreatGrape.Web.Infrastructure\\TheGreatGrape.Web.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Gamer\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
+    "C:\\Users\\Gamer\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512"
+  ],
+  "logs": []
+}
