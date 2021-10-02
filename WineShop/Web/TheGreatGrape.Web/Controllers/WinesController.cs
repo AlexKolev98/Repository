@@ -143,7 +143,6 @@
                     this.Redirect("/Wines/" + nameof(this.NothingFound));
                 }
 
-                this.TempData["postViewModel"] = JsonConvert.SerializeObject(viewModel);
                 return this.View(viewModel);
             }
 
