@@ -20,25 +20,81 @@
             this.winesRepository = winesRepository;
         }
 
-        public IEnumerable<T> GetAll<T>(int page, int itemsPerPage)
+        public IEnumerable<WinesListViewModel> GetModelWithPaging(int page, int itemsPerPage, IEnumerable<WinesListViewModel> viewModel)
         {
-            var wines = this.winesRepository.AllAsNoTracking()
-                .OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage).To<T>()
-                .ToList();
-            return wines;
+            return this.ApplyPaging(page, itemsPerPage, viewModel);
         }
 
-        private IEnumerable<T> GetAllWithoutPaging<T>(int page, int itemsPerPage)
+        public IEnumerable<WinesListViewModel> GetAllByX(string searchByInput, string searchBy, string isComingFrom)
         {
-            var wines = this.winesRepository.AllAsNoTracking().To<T>().ToList();
-            return wines;
+            // This method is used by 2 (Wine / Search) controllers.
+            // It generates the appropriate viewModel by hard or soft search.
+
+            // searchBy defines what to search by (category, winery etc.).
+            // The private methods do the rest by converting searchByInput to the appropriate type and apply paging, depending on which controller this was called by.
+            searchBy.Trim();
+
+            if (searchBy == nameof(Category))
+            {
+                return this.GetAllByCategory(searchByInput, isComingFrom);
+            }
+            else if (searchBy == nameof(Country))
+            {
+                return this.GetAllByCountry(searchByInput, isComingFrom);
+            }
+            else if (searchBy == nameof(Wine.Name))
+            {
+                return this.GetAllByName(searchByInput, isComingFrom);
+            }
+            else if (searchBy == nameof(Winery))
+            {
+                return this.GetAllByWinery(searchByInput, isComingFrom);
+            }
+            else if (searchBy == nameof(Grape))
+            {
+                return this.GetAllByGrape(searchByInput, isComingFrom);
+            }
+            else if (searchBy == nameof(Wine.Price))
+            {
+                return this.GetAllByPrice(searchByInput);
+            }
+            else if (searchBy == nameof(Wine.Year))
+            {
+                return this.GetAllByYear(searchByInput);
+            }
+            else if (searchBy == nameof(Wine.Volume))
+            {
+                return this.GetAllByVolume(searchByInput);
+            }
+            else if (searchBy == nameof(Wine.Alcohol))
+            {
+                return this.GetAllByAlcohol(searchByInput);
+            }
+            else if (searchBy == nameof(Wine.Sweetness))
+            {
+                return this.GetAllBySweetness(searchByInput);
+            }
+            else if (searchBy == nameof(Wine.IsApproved))
+            {
+                return this.GetAllByNotApproved();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public int GetCount()
         {
+            // Returns the count of all approved wines.
             return this.winesRepository.AllAsNoTracking().Where(x => x.IsApproved == true).Count();
+        }
+
+        public int GetCount(string searchByInput, string searchBy, string isComingFrom)
+        {
+            // Gets count of wines by search criteria.
+            // Critical for correct paging.
+            return this.GetAllByX(searchByInput, searchBy, isComingFrom).Count();
         }
 
         public T GetWine<T>(int id)
@@ -82,116 +138,60 @@
             }
         }
 
-        private IEnumerable<WinesListViewModel> GetApprovedOnlyPrivate(int page, int itemsPerPage)
+        public IEnumerable<WinesListViewModel> GetApprovedOnly()
         {
-            var wines = this.GetAllWithoutPaging<WinesListViewModel>(page, itemsPerPage).Where(x => x.IsApproved == true).OrderByDescending(x => x.Id)
-                .ToList();
+            // Returns all approved wines and applies paging.
+            var wines = this.GetAllWithoutPaging<WinesListViewModel>().Where(x => x.IsApproved == true);
+            return wines;
+        }
+
+        public IEnumerable<WinesListViewModel> GetAllByNotApproved()
+        {
+            // Returns all wines that are not approved and applies paging.
+            var wines = this.GetAllWithoutPaging<WinesListViewModel>().Where(x => x.IsApproved != true);
 
             return wines;
         }
 
-        public IEnumerable<WinesListViewModel> GetApprovedOnly(int page, int itemsPerPage)
+        private IEnumerable<WinesListViewModel> ApplyPaging(int page, int itemsPerPage, IEnumerable<WinesListViewModel> list)
         {
-            var wines = this.GetAllWithoutPaging<WinesListViewModel>(page, itemsPerPage).Where(x => x.IsApproved == true).OrderByDescending(x => x.Id)
-                .OrderByDescending(x => x.Id)
+            // Applies paging to the view model.
+            return list.OrderByDescending(x => x.Id)
                 .Skip((page - 1) * itemsPerPage)
                 .Take(itemsPerPage)
                 .ToList();
-
-            return wines;
         }
 
-        public IEnumerable<WinesListViewModel> GetAllByNotApproved(int page, int itemsPerPage)
+        private IEnumerable<T> GetAllWithoutPaging<T>()
         {
-            var wines = this.GetAll<WinesListViewModel>(page, itemsPerPage).Where(x => x.IsApproved != true).OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
+            // Returns all approved wines.
+            // Paging should be applied later.
+            return this.winesRepository.AllAsNoTracking().To<T>().ToList();
+        }
+
+        private IEnumerable<WinesListViewModel> GetApprovedOnlyPrivate()
+        {
+            // This method is used only by the methods below it.
+            // Returns all approved wines.
+            var wines = this.GetAllWithoutPaging<WinesListViewModel>().Where(x => x.IsApproved == true).OrderByDescending(x => x.Id)
                 .ToList();
 
             return wines;
         }
 
-        // This service is used by 2 (Wine / Search) controllers.
-        // It generates the appropriate viewModel by hard or soft search.
-
-        // inputX defines what to search by (category, winery etc.).
-        // The private services do the rest by converting searchByInput to the appropriate type, depending on which controller this was called by.
-        public IEnumerable<WinesListViewModel> GetAllByX(int page, int itemsPerPage, string searchByInput, string inputX, string isComingFrom)
-        {
-            inputX.Trim();
-
-            if (inputX == nameof(Category))
-            {
-                return this.GetAllByCategory(page, itemsPerPage, searchByInput, isComingFrom);
-            }
-            else if (inputX == nameof(Country))
-            {
-                return this.GetAllByCountry(page, itemsPerPage, searchByInput, isComingFrom);
-            }
-            else if (inputX == nameof(Wine.Name))
-            {
-                return this.GetAllByName(page, itemsPerPage, searchByInput, isComingFrom);
-            }
-            else if (inputX == nameof(Winery))
-            {
-                return this.GetAllByWinery(page, itemsPerPage, searchByInput, isComingFrom);
-            }
-            else if (inputX == nameof(Grape))
-            {
-                return this.GetAllByGrape(page, itemsPerPage, searchByInput, isComingFrom);
-            }
-            else if (inputX == nameof(Wine.Price))
-            {
-                return this.GetAllByPrice(page, itemsPerPage, searchByInput);
-            }
-            else if (inputX == nameof(Wine.Year))
-            {
-                return this.GetAllByYear(page, itemsPerPage, searchByInput);
-            }
-            else if (inputX == nameof(Wine.Volume))
-            {
-                return this.GetAllByVolume(page, itemsPerPage, searchByInput);
-            }
-            else if (inputX == nameof(Wine.Alcohol))
-            {
-                return this.GetAllByAlcohol(page, itemsPerPage, searchByInput);
-            }
-            else if (inputX == nameof(Wine.Sweetness))
-            {
-                var sweetness = searchByInput;
-                var wines = this.GetAllBySweetness(page, itemsPerPage, sweetness);
-                return wines;
-            }
-            else if (inputX == nameof(Wine.IsApproved))
-            {
-                var wines = this.GetAllByNotApproved(page, itemsPerPage);
-                return wines;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        private IEnumerable<WinesListViewModel> GetAllByCategory(int page, int itemsPerPage, string searchByInput, string isComingFrom)
+        private IEnumerable<WinesListViewModel> GetAllByCategory(string searchByInput, string isComingFrom)
         {
             if (isComingFrom == "WinesController")
             {
                 var categoryId = int.Parse(searchByInput);
-                var wines = this.GetApprovedOnlyPrivate(page, itemsPerPage).Where(x => x.CategoryId == categoryId).OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                var wines = this.GetApprovedOnlyPrivate().Where(x => x.CategoryId == categoryId);
                 return wines;
             }
             else
             {
                 if (this.winesRepository.All().Any(x => x.Category.Name == searchByInput))
                 {
-                    var wines = this.winesRepository.All().Where(x => x.Category.Name == searchByInput).To<WinesListViewModel>().OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                    var wines = this.winesRepository.All().Where(x => x.Category.Name == searchByInput).To<WinesListViewModel>();
                     return wines;
                 }
 
@@ -199,25 +199,19 @@
             }
         }
 
-        private IEnumerable<WinesListViewModel> GetAllByCountry(int page, int itemsPerPage, string searchByInput, string isComingFrom)
+        private IEnumerable<WinesListViewModel> GetAllByCountry(string searchByInput, string isComingFrom)
         {
             if (isComingFrom == "WinesController")
             {
                 var countryId = int.Parse(searchByInput);
-                var wines = this.GetApprovedOnlyPrivate(page, itemsPerPage).Where(x => x.CountryId == countryId).OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                var wines = this.GetApprovedOnlyPrivate().Where(x => x.CountryId == countryId);
                 return wines;
             }
             else
             {
                 if (this.winesRepository.All().Any(x => x.Country.Name == searchByInput))
                 {
-                    var wines = this.winesRepository.All().Where(x => x.Country.Name == searchByInput && x.IsApproved == true).To<WinesListViewModel>().OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                    var wines = this.winesRepository.All().Where(x => x.Country.Name == searchByInput && x.IsApproved == true).To<WinesListViewModel>();
                     return wines;
                 }
 
@@ -225,25 +219,19 @@
             }
         }
 
-        private IEnumerable<WinesListViewModel> GetAllByWinery(int page, int itemsPerPage, string searchByInput, string isComingFrom)
+        private IEnumerable<WinesListViewModel> GetAllByWinery(string searchByInput, string isComingFrom)
         {
             if (isComingFrom == "WinesController")
             {
                 var wineryId = int.Parse(searchByInput);
-                var wines = this.GetApprovedOnlyPrivate(page, itemsPerPage).Where(x => x.WineryId == wineryId).OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                var wines = this.GetApprovedOnlyPrivate().Where(x => x.WineryId == wineryId);
                 return wines;
             }
             else
             {
                 if (this.winesRepository.All().Any(x => x.Winery.Name == searchByInput))
                 {
-                    var wines = this.winesRepository.All().Where(x => x.Winery.Name == searchByInput && x.IsApproved == true).To<WinesListViewModel>().OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                    var wines = this.winesRepository.All().Where(x => x.Winery.Name == searchByInput && x.IsApproved == true).To<WinesListViewModel>();
                     return wines;
                 }
 
@@ -251,23 +239,20 @@
             }
         }
 
-        private IEnumerable<WinesListViewModel> GetAllByGrape(int page, int itemsPerPage, string searchByInput, string isComingFrom)
+        private IEnumerable<WinesListViewModel> GetAllByGrape(string searchByInput, string isComingFrom)
         {
             if (isComingFrom == "WinesController")
             {
                 var grapeId = int.Parse(searchByInput);
-                var wines = this.GetApprovedOnlyPrivate(page, itemsPerPage).Where(x => x.GrapeId == grapeId).ToList();
+                var wines = this.GetApprovedOnlyPrivate().Where(x => x.GrapeId == grapeId).ToList();
                 return wines;
             }
             else
             {
-                //Subject to change if wine uses more than 1 grape.
+                // Subject to change if wine uses more than 1 grape.
                 if (this.winesRepository.All().Any(x => x.Grapes.FirstOrDefault().Grape.Name == searchByInput))
                 {
-                    var wines = this.winesRepository.All().Where(x => x.Grapes.FirstOrDefault().Grape.Name == searchByInput && x.IsApproved == true).To<WinesListViewModel>().OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                    var wines = this.winesRepository.All().Where(x => x.Grapes.FirstOrDefault().Grape.Name == searchByInput && x.IsApproved == true).To<WinesListViewModel>();
                     return wines;
                 }
 
@@ -275,16 +260,13 @@
             }
         }
 
-        private IEnumerable<WinesListViewModel> GetAllByPrice(int page, int itemsPerPage, string searchByInput)
+        private IEnumerable<WinesListViewModel> GetAllByPrice(string searchByInput)
         {
             if (decimal.TryParse(searchByInput, out decimal price))
             {
                 if (this.winesRepository.All().Any(x => x.Price == price && x.IsApproved == true))
                 {
-                    var wines = this.GetApprovedOnlyPrivate(page, itemsPerPage).Where(x => x.Price == price).OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                    var wines = this.GetApprovedOnlyPrivate().Where(x => x.Price == price);
                     return wines;
                 }
             }
@@ -292,16 +274,13 @@
             return null;
         }
 
-        private IEnumerable<WinesListViewModel> GetAllByYear(int page, int itemsPerPage, string searchByInput)
+        private IEnumerable<WinesListViewModel> GetAllByYear(string searchByInput)
         {
             if (int.TryParse(searchByInput, out int year))
             {
                 if (this.winesRepository.All().Any(x => x.Year == year && x.IsApproved == true))
                 {
-                    var wines = this.GetApprovedOnlyPrivate(page, itemsPerPage).Where(x => x.Year == year).OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                    var wines = this.GetApprovedOnlyPrivate().Where(x => x.Year == year);
                     return wines;
                 }
             }
@@ -309,16 +288,13 @@
             return null;
         }
 
-        private IEnumerable<WinesListViewModel> GetAllByVolume(int page, int itemsPerPage, string searchByInput)
+        private IEnumerable<WinesListViewModel> GetAllByVolume(string searchByInput)
         {
             if (int.TryParse(searchByInput, out int volume))
             {
                 if (this.winesRepository.All().Any(x => x.Volume == volume))
                 {
-                    var wines = this.GetApprovedOnlyPrivate(page, itemsPerPage).Where(x => x.Volume == volume).OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                    var wines = this.GetApprovedOnlyPrivate().Where(x => x.Volume == volume);
                     return wines;
                 }
             }
@@ -326,16 +302,13 @@
             return null;
         }
 
-        private IEnumerable<WinesListViewModel> GetAllByAlcohol(int page, int itemsPerPage, string searchByInput)
+        private IEnumerable<WinesListViewModel> GetAllByAlcohol(string searchByInput)
         {
             if (decimal.TryParse(searchByInput, out decimal alcohol))
             {
                 if (this.winesRepository.All().Any(x => x.Alcohol == alcohol && x.IsApproved == true))
                 {
-                    var wines = this.GetApprovedOnlyPrivate(page, itemsPerPage).Where(x => x.Alcohol == alcohol).OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                    var wines = this.GetApprovedOnlyPrivate().Where(x => x.Alcohol == alcohol);
                     return wines;
                 }
             }
@@ -343,25 +316,19 @@
             return null;
         }
 
-        private IEnumerable<WinesListViewModel> GetAllByName(int page, int itemsPerPage, string searchByInput, string isComingFrom)
+        private IEnumerable<WinesListViewModel> GetAllByName(string searchByInput, string isComingFrom)
         {
             if (isComingFrom == "WinesController")
             {
                 var name = searchByInput;
-                var wines = this.GetApprovedOnlyPrivate(page, itemsPerPage).Where(x => x.Name == name).OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                var wines = this.GetApprovedOnlyPrivate().Where(x => x.Name == name);
                 return wines;
             }
             else
             {
                 if (this.winesRepository.All().Any(x => x.Name == searchByInput) || this.winesRepository.All().Any(x => x.Name.ToLower() == searchByInput))
                 {
-                    var wines = this.winesRepository.All().Where(x => (x.Name == searchByInput || x.Name.ToLower() == searchByInput) && x.IsApproved == true).To<WinesListViewModel>().OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
+                    var wines = this.winesRepository.All().Where(x => (x.Name == searchByInput || x.Name.ToLower() == searchByInput) && x.IsApproved == true).To<WinesListViewModel>();
                     return wines;
                 }
                 else
@@ -399,13 +366,9 @@
             }
         }
 
-        private IEnumerable<WinesListViewModel> GetAllBySweetness(int page, int itemsPerPage, string sweetness)
+        private IEnumerable<WinesListViewModel> GetAllBySweetness(string sweetness)
         {
-            var wines = this.GetApprovedOnlyPrivate(page, itemsPerPage).Where(x => x.Sweetness.ToString() == sweetness).OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage)
-                .Take(itemsPerPage)
-                .ToList();
-
+            var wines = this.GetApprovedOnlyPrivate().Where(x => x.Sweetness.ToString() == sweetness);
             return wines;
         }
     }

@@ -235,3 +235,4 @@ D:\LocalRepository\Repository\WineShop\Tests\Sandbox\obj\Debug\net5.0\Sandbox.ge
 D:\LocalRepository\Repository\WineShop\Tests\Sandbox\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
 D:\LocalRepository\Repository\WineShop\Tests\Sandbox\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 D:\LocalRepository\Repository\WineShop\Tests\Sandbox\bin\Debug\net5.0\System.IO.Pipelines.dll
+D:\LocalRepository\Repository\WineShop\Tests\Sandbox\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll

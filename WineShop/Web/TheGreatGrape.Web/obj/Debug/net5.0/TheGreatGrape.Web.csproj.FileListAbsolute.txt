@@ -1041,7 +1041,6 @@ D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\bin\Debug\net5.0\re
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\bin\Debug\net5.0\refs\Microsoft.Extensions.Http.dll
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\bin\Debug\net5.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\bin\Debug\net5.0\refs\Microsoft.Extensions.Localization.dll
-D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\bin\Debug\net5.0\refs\Microsoft.Extensions.Logging.Abstractions.dll
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\bin\Debug\net5.0\refs\Microsoft.Extensions.Logging.Configuration.dll
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\bin\Debug\net5.0\refs\Microsoft.Extensions.Logging.Console.dll
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\bin\Debug\net5.0\refs\Microsoft.Extensions.Logging.Debug.dll
@@ -1435,3 +1434,4 @@ D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Ra
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Wines\ById.cshtml.g.cs
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Wineries\ById.cshtml.g.cs
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\obj\Debug\net5.0\Razor\Views\Shared\_WinesPagingPartial.cshtml.g.cs
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll

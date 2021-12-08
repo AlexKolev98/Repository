@@ -27,7 +27,7 @@ using TheGreatGrape.Web.ViewModels;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fadb78f5ec1256156bb0c72299efa23a89e624f0", @"/Areas/Administration/Views/Wines/Delete.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f682ba3a8d725d8a9eaaecbca6341d4060807caa", @"/Areas/Administration/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c1c3e10723675c4f4e9a507039873b2917d6cca5", @"/Areas/Administration/Views/_ViewImports.cshtml")]
     public class Areas_Administration_Views_Wines_Delete : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<TheGreatGrape.Data.Models.WineShop.Wine>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("type", "hidden", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

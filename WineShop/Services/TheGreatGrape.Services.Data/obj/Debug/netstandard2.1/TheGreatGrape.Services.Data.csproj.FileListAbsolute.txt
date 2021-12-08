@@ -52,3 +52,4 @@ D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Data\obj\
 D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Data\obj\Debug\netstandard2.1\TheGreatGrape.Services.Data.csproj.CopyComplete
 D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Data\obj\Debug\netstandard2.1\TheGreatGrape.Services.Data.dll
 D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Data\obj\Debug\netstandard2.1\TheGreatGrape.Services.Data.pdb
+D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services.Data\obj\Debug\netstandard2.1\TheGreatGrape.Services.Data.GeneratedMSBuildEditorConfig.editorconfig

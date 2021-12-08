@@ -102,7 +102,7 @@
 
         public IActionResult AllByX(string searchByInput, string searchBy, int pageNumberId = 1)
         {
-            // IF tempData != null, this is being redirected by SearchController.
+            // IF tempData is coming from the Search Controller, then this is being redirected from there.
             var tempData = this.TempData["isComingFrom"];
 
             if (tempData != null)
@@ -117,8 +117,8 @@
                     {
                         PageNumber = pageNumberId,
                         ItemsPerPage = this.itemsPerPage,
-                        ItemsCount = this.winesService.GetCount(),
-                        Wines = this.winesService.GetAllByX(pageNumberId, this.itemsPerPage, searchByInput, searchBy, comingFrom),
+                        ItemsCount = this.winesService.GetCount(searchByInput, searchBy, comingFrom),
+                        Wines = this.winesService.GetModelWithPaging(pageNumberId, this.itemsPerPage, this.winesService.GetAllByX(searchByInput, searchBy, comingFrom)),
                         SearchBy = searchBy,
                         SearchByInput = searchByInput,
                     };
@@ -132,9 +132,9 @@
                 var viewModel = new WinesListViewModel
                 {
                     PageNumber = pageNumberId,
-                    ItemsCount = this.winesService.GetCount(),
+                    ItemsCount = this.winesService.GetCount(searchByInput, searchBy, this.isComingFrom),
                     ItemsPerPage = this.itemsPerPage,
-                    Wines = this.winesService.GetAllByX(pageNumberId, this.itemsPerPage, searchByInput, searchBy, this.isComingFrom),
+                    Wines = this.winesService.GetModelWithPaging(pageNumberId, this.itemsPerPage, this.winesService.GetAllByX(searchByInput, searchBy, this.isComingFrom)),
                     SearchBy = searchBy,
                     SearchByInput = searchByInput,
                 };
@@ -194,7 +194,7 @@
                 PageNumber = id,
                 ItemsCount = this.winesService.GetCount(),
                 ItemsPerPage = this.itemsPerPage,
-                Wines = this.winesService.GetApprovedOnly(id, this.itemsPerPage),
+                Wines = this.winesService.GetModelWithPaging(id, itemsPerPage, this.winesService.GetApprovedOnly()),
             };
 
             return this.View(viewModel);

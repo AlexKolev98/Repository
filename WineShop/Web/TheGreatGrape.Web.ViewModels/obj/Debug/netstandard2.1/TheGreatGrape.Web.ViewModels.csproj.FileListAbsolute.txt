@@ -46,3 +46,4 @@ D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.ViewModels\obj\Debu
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.ViewModels\obj\Debug\netstandard2.1\TheGreatGrape.Web.ViewModels.csproj.CopyComplete
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.ViewModels\obj\Debug\netstandard2.1\TheGreatGrape.Web.ViewModels.dll
 D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.ViewModels\obj\Debug\netstandard2.1\TheGreatGrape.Web.ViewModels.pdb
+D:\LocalRepository\Repository\WineShop\Web\TheGreatGrape.Web.ViewModels\obj\Debug\netstandard2.1\TheGreatGrape.Web.ViewModels.GeneratedMSBuildEditorConfig.editorconfig

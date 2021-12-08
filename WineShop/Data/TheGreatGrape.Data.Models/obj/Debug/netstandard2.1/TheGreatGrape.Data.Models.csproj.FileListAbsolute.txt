@@ -34,3 +34,4 @@ D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\
 D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.csproj.CopyComplete
 D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.dll
 D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.pdb
+D:\LocalRepository\Repository\WineShop\Data\TheGreatGrape.Data.Models\obj\Debug\netstandard2.1\TheGreatGrape.Data.Models.GeneratedMSBuildEditorConfig.editorconfig

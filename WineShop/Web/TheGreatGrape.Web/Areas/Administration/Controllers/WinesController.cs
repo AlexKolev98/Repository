@@ -46,7 +46,7 @@
                 PageNumber = id,
                 ItemsCount = this.winesService.GetCount(),
                 ItemsPerPage = ItemsPerPage,
-                Wines = this.winesService.GetAllByNotApproved(id, ItemsPerPage),
+                Wines = this.winesService.GetModelWithPaging(id, ItemsPerPage, this.winesService.GetAllByNotApproved()),
             };
 
             return this.View(viewModel);

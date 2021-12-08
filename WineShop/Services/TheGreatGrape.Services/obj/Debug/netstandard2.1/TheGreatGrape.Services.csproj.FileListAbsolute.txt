@@ -25,3 +25,4 @@ D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services\obj\Debug
 D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services\obj\Debug\netstandard2.1\TheGreatGrape.Services.csproj.CoreCompileInputs.cache
 D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services\obj\Debug\netstandard2.1\TheGreatGrape.Services.dll
 D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services\obj\Debug\netstandard2.1\TheGreatGrape.Services.pdb
+D:\LocalRepository\Repository\WineShop\Services\TheGreatGrape.Services\obj\Debug\netstandard2.1\TheGreatGrape.Services.GeneratedMSBuildEditorConfig.editorconfig
